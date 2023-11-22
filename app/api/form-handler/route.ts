@@ -104,7 +104,7 @@ export async function POST(request: Request, response: any) {
   const resultOfDB = await saveMap(jsonData, hash)
   console.log(resultOfDB)
 
-  return NextResponse.redirect(new URL(`/?hash=${hash}`, request.url))
+  return NextResponse.redirect(new URL(`/loading?hash=${hash}`, request.url))
 }
 
 

@@ -44,11 +44,12 @@ const mock = {
 export default function FlowContainer() {
   const searchParams = useSearchParams()
   const search = searchParams.get('hashData')
-  const decodeString = decodeURIComponent(search as string)
-  const jsonString = atob(decodeString)
-  const jsonObject = JSON.parse(jsonString)
-
-  console.debug(jsonObject)
+  if (search !== null) {
+    const decodeString = decodeURIComponent(search as string)
+    const jsonString = atob(decodeString)
+    const jsonObject = JSON.parse(jsonString) 
+    console.debug(jsonObject)
+  }
   const [nodeData, setNodeData] = useState<any>([])
   const [userData, setUserData] = useState<any>(null)
 

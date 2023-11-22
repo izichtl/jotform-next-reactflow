@@ -41,7 +41,7 @@ export default function LoadingContainer() {
     console.debug(base64String)
     const encodedBase64String = encodeURIComponent(base64String);
 
-    redirect(`/?hashData=${encodedBase64String}`)
+    redirect(`/map?hashData=${encodedBase64String}`)
     // router.push({
     //   pathname: '/',
     //   query: { data: base64String }, // Pass the data in the query parameter
