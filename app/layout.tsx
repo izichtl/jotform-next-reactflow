@@ -25,9 +25,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} font-inter antialiased bg-white text-gray-900 tracking-tight`}>
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
-          <Header />
+          {/* <Header /> */}
           {children}
-          <Banner />
+          {/* <Banner /> */}
         </div>
       </body>
     </html>

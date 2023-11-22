@@ -1,22 +1,14 @@
+
+import React, { useEffect } from "react";
+
 export const metadata = {
   title: 'Home - Simple',
   description: 'Page description',
 }
+import FlowContainer from '@/components/flowContainer'
 
-import Hero from '@/components/hero'
-import Features from '@/components/features'
-import FeaturesBlocks from '@/components/features-blocks'
-import Testimonials from '@/components/testimonials'
-import Newsletter from '@/components/newsletter'
-
-export default function Home() {
+export default async function Home({ params }: any) {
   return (
-    <>
-      <Hero />
-      <Features />
-      <FeaturesBlocks />
-      <Testimonials />
-      <Newsletter />
-    </>
+    <FlowContainer />
   )
 }

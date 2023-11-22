@@ -1,0 +1,50 @@
+.flow {
+  /* flex-grow: 1; */
+  font-size: 15px;
+  height: 500px;
+  width: 700px;
+  background-color: white;
+  /* border: 1px solid #555; */
+}
+
+.customNode {
+  border: 1px solid #555;
+  /* background-color: red; */
+  padding: 8px;
+  width: 100px;
+  border-radius: 30px;
+}
+.customNeutral {
+  border: 1px solid white;
+  font-size: 10px;
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  padding: 8px;
+  width: 100px;
+  border-radius: 30px;
+}
+.customGood {
+  border: 1px solid white;
+  font-size: 10px;
+  background-color: #bef264;
+  padding: 8px;
+  width: 100px;
+  border-radius: 30px;
+}
+.customRegular {
+  border: 1px solid white;
+  font-size: 10px;
+  background-color: #fef08a;
+  padding: 8px;
+  width: 100px;
+  border-radius: 30px;
+}
+.customBad {
+  border: 1px solid white;
+  font-size: 10px;
+  background-color: #fda4af;
+  padding: 8px;
+  width: 100px;
+  border-radius: 30px;
+}
+
