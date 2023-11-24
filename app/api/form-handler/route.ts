@@ -108,7 +108,7 @@ export async function POST(request: Request, response: Response) {
   const resultOfDB = await saveMap(jsonData, hash)
   console.log(resultOfDB)
 
-  return NextResponse.redirect(`/loading?hash=${hash}`, {
+  return NextResponse.redirect(`https://lifeflow.vercel.app/loading?hash=${hash}`, {
     status: 301,
   });
 }
