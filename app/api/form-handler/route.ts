@@ -40,15 +40,10 @@ export async function GET(request: NextRequest, response: any) {
 
 
 export async function POST(request: Request, response: any) {
-  console.log(process.env.DB_HOST)
   const bodyData = await request.formData() // bodyData now contains body
+  console.log(bodyData)
   // TRANSFORMA EM ARRAY A KEYS PODENDO ITERAR SOBRE ELAS
-  const keysArray = Array.from(bodyData.keys());
-
-  const dataArry = keysArray.map((item: any) => {
-    const a = item.toString()
-    return { [a]: bodyData.get(item)}
-  })
+  // const keysArray = Array.from(bodyData.keys());
 
   const submission_id = bodyData.get('submission_id')
   const fullName = bodyData.get('name')
@@ -102,7 +97,7 @@ export async function POST(request: Request, response: any) {
   }
   const hash = uuidv4()
   const resultOfDB = await saveMap(jsonData, hash)
-  console.log(resultOfDB)
+  // console.log(resultOfDB)
 
   return NextResponse.redirect(new URL(`/loading?hash=${hash}`, request.url))
 }
