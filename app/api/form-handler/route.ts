@@ -108,7 +108,7 @@ export async function POST(request: Request, response: Response) {
   const resultOfDB = await saveMap(jsonData, hash)
   console.log(resultOfDB)
 
-  return NextResponse.redirect(`https://ee27-2804-14d-1685-a1e3-4856-c4bc-23ba-b7b6.ngrok-free.app/loading?hash=${hash}`, {
+  return NextResponse.redirect(`/loading?hash=${hash}`, {
     status: 301,
   });
 }
