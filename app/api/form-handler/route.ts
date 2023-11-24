@@ -7,6 +7,9 @@ import { saveMap } from "@/database/save-map";
 import { v4 as uuidv4 } from 'uuid';
 import { getMapFromHash } from "@/database/get-map";
 const cache = new NodeCache();
+// @ts-ignore
+import Cors from 'cors';
+import { couldStartTrivia } from "typescript";
 
 export async function GET(request: NextRequest, response: any) {
 
@@ -37,9 +40,15 @@ export async function GET(request: NextRequest, response: any) {
 
 // }
 
+// const cors = Cors({
+//   origin: 'https://www.jotform.com/',
+//   methods: ['POST', 'GET'], // Adjust the methods as needed
+// });
 
 
-export async function POST(request: Request, response: any) {
+export async function POST(request: Request, response: Response) {
+  console.log('Headers:', request.headers);
+  // await cors(request, response);
   const bodyData = await request.formData() // bodyData now contains body
   console.log(bodyData)
   // TRANSFORMA EM ARRAY A KEYS PODENDO ITERAR SOBRE ELAS
@@ -97,9 +106,11 @@ export async function POST(request: Request, response: any) {
   }
   const hash = uuidv4()
   const resultOfDB = await saveMap(jsonData, hash)
-  // console.log(resultOfDB)
+  console.log(resultOfDB)
 
-  return NextResponse.redirect(new URL(`/loading?hash=${hash}`, request.url))
+  return NextResponse.redirect(`https://ee27-2804-14d-1685-a1e3-4856-c4bc-23ba-b7b6.ngrok-free.app/loading?hash=${hash}`, {
+    status: 301,
+  });
 }
 
 
