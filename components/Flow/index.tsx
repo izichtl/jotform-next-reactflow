@@ -79,23 +79,17 @@ const defaultEdgeOptions = {
 };
 
 function Flow( { dataArray }: any) {
-  console.debug(dataArray, 'chegada flow')
+  // console.debug(dataArray, 'chegada flow')
   const aaa = createNodes(dataArray)
-  console.debug(aaa, 'edit flow')
+  // console.debug(aaa, 'edit flow')
   const [nodes, setNodes, ] = useState(aaa);
-  // useEffect(() => {
-    //   
-    //   setNodes(aaa)
-    //   console.log('efe1')
-    // },[nodes1])
     
-    useEffect(() => {
-    // console.debug(nodes, 'valor effect flow')
-    // onNodesChange(nodes)
+  useEffect(() => {
+
   },[nodes])
 
   const onNodesChange = useCallback(
-    (changes: any) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    (changes: any) => setNodes((nds: any) => applyNodeChanges(changes, nds)),
     [],
   );
 

@@ -13,33 +13,33 @@ const baseData = [
   },
 ]
 const baseTag = ['Saúde Mental', 'Atividade Física', 'Alimentação']
-const teste = [
-  {
-    title: 'Saúde',
-    status: 'Neutro'
-  },
-  {
-    title: 'Saúde Mental',
-    status: 'Bom'
-  },
-  {
-    title: 'Atividade Física',
-    status: 'Regular'
-  },
-  {
-    title: 'Alimentação',
-    status: 'Ruim'
-  }
-]
+// const teste = [
+//   {
+//     title: 'Saúde',
+//     status: 'Neutro'
+//   },
+//   {
+//     title: 'Saúde Mental',
+//     status: 'Bom'
+//   },
+//   {
+//     title: 'Atividade Física',
+//     status: 'Regular'
+//   },
+//   {
+//     title: 'Alimentação',
+//     status: 'Ruim'
+//   }
+// ]
 
-const mock = {
-  accept:"Sim",
-  email:"aizichtl@gmail.com",
-  firstName:"12121212",
-  health:['Bom', 'Bom', 'Bom'],
-  lastName:"12121",
-  motivo: "1212121212121"
-}
+// const mock = {
+//   accept:"Sim",
+//   email:"aizichtl@gmail.com",
+//   firstName:"12121212",
+//   health:['Bom', 'Bom', 'Bom'],
+//   lastName:"12121",
+//   motivo: "1212121212121"
+// }
 // http://localhost:3000/loading?hash=79d7b993-d1ee-480f-b568-2bf61dc2ba66
 export default function FlowContainer() {
   const searchParams = useSearchParams()
@@ -58,7 +58,7 @@ export default function FlowContainer() {
 
   async function getStaticProps() {
     try {
-      const response = await axios.get(`http://localhost:3000/api/form-handler?hash=${search}`)
+      const response = await axios.get(`/api/form-handler?hash=${search}`)
         .then(r=>r)
       console.debug(response, 'request')
       

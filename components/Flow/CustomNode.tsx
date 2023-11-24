@@ -1,5 +1,5 @@
 import { memo, FC, CSSProperties } from 'react';
-import { Handle, Position, NodeProps, NodeResizer } from 'reactflow';
+import { Handle, Position, NodeProps } from 'reactflow';
 
 const sourceHandleStyleA: CSSProperties = {
   color: 'blue',
@@ -7,7 +7,7 @@ const sourceHandleStyleA: CSSProperties = {
   border: '1px',
 };
 
-const CustomNode: FC<NodeProps> = ({ data, xPos, yPos, color }) => {
+const CustomNode: FC<NodeProps> = ({ data }) => {
   return (
     <>
       <div>
