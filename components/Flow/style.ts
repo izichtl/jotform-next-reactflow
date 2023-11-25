@@ -2,9 +2,12 @@ import styled, { css } from 'styled-components'
 
 
 export const FlowContainer = styled.div`
-  padding: 0px;
-  height: 700px;
+  display: flex;
+  flex-grow: 1;
+  /* padding: 0px; */
+  height: 100px;
   width: 100%;
+  /* border: 1px solid gainsboro; */
 `
 
 //  ICON NODE STYLES

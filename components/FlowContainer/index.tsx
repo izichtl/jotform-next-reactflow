@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 // import axios from 'axios'
 import Flow from '@/components/Flow'
+import MapHeader from '../MapHeader'
 // import ReactLoading from 'react-loading';
-import {Container} from './style'
+// import {Container} from './style'
 
 export default function FlowContainer() {
   const searchParams = useSearchParams()
@@ -29,7 +30,8 @@ export default function FlowContainer() {
   useEffect(()=>{
   },[data])
   return (
-    <Container>
+    <>
+      {/* <MapHeader /> */}
       {data !== null && (
         <Flow
         data={data}
@@ -37,6 +39,6 @@ export default function FlowContainer() {
         body={data.maps[1]}
         spirit={data.maps[2]}
         />
-      )}
-  </Container>)
+        )}
+  </>)
 }

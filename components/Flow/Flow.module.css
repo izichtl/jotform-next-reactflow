@@ -21,6 +21,15 @@
   height: 36px;
   border-radius: 30px;
 }
+.customAreaNode {
+  border: 1px solid white;
+  font-size: 10px;
+  background-color: #5DADE2;
+  padding: 8px;
+  width: 100px;
+  height: 36px;
+  border-radius: 30px;
+}
 .customGood {
   border: 1px solid white;
   /* font-size: 20px; */

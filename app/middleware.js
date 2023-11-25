@@ -1,9 +1,3 @@
-// src/middleware.js 
-// or 
-// src/app/middleware.js 
-// or 
-// src/pages/middleware.js 
-
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
@@ -18,12 +12,9 @@ export function middleware(request) {
         'Access-Control-Allow-Headers',
         'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
     )
-    console.log(request.method)
-    console.log(request.url)
     return res
 }
 
-// specify the path regex to apply the middleware to
 export const config = {
     matcher: '*',
 }

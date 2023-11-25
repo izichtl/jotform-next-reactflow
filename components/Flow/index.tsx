@@ -20,6 +20,7 @@ import NodeStatus from './NodeStatus';
 import 'reactflow/dist/style.css';
 import styles from './Flow.module.css';
 import { FlowContainer } from './style'
+import { obterPrimeiroNome } from '../utils/data-format';
 
 const returnStyle = (i: any) => {
   if(i === 'Neutro' ) return styles.customNeutral
@@ -40,7 +41,7 @@ function Flow( { data, mind, body, spirit }: any) {
     {
       id: 'base',
       type: 'custom',
-      data: { label: 'USER', icon: '📍', invert: false },
+      data: { label: obterPrimeiroNome(data.fullName).toUpperCase(), icon: '📍', invert: false },
       position:  { x: dimensionX  , y: dimensionY },
       className: styles.customNeutral,
     },
@@ -49,21 +50,21 @@ function Flow( { data, mind, body, spirit }: any) {
       type: 'custom',
       data: { label: 'MENTE', icon: '🧠', invert: false  },
       position:  { x: (dimensionX+ 200)  , y: (dimensionY - 200) },
-      className: styles.customNeutral,
+      className: styles.customAreaNode,
     },
     {
       id: '3',
       type: 'custom',
       data: { label: 'CORPO', icon: '🏃🏻‍♀️', invert: false  },
       position:  { x: (dimensionX+ 150)  , y: (dimensionY + 210) },
-      className: styles.customNeutral,
+      className: styles.customAreaNode,
     },
     {
       id: '4',
       type: 'custom',
       data: { label: 'ESPÍRITO', icon: '🧘🏽', invert: false  },
       position:  { x: (dimensionX- 200)  , y: (dimensionY - 60) },
-      className: styles.customNeutral,
+      className: styles.customAreaNode,
     },
     // {
     //   id: '2-1',
@@ -279,10 +280,12 @@ const defaultEdgeOptions = {
   },[base])
 
   return (
-    <FlowContainer className={styles.flow}>     
+    <FlowContainer >     
       <ReactFlow
         style={{
-          backgroundColor: '#fafafa',
+          backgroundColor: '#fff',
+          marginBottom: '0px',
+          margin: '0px'
         }}
         nodes={base}
         fitView={true}
@@ -292,7 +295,7 @@ const defaultEdgeOptions = {
         defaultViewport={{ x: 0, y: 0, zoom: 1 }}
         defaultEdgeOptions={defaultEdgeOptions}
         connectionLineType={ConnectionLineType.SmoothStep}
-        attributionPosition="bottom-left"
+        // attributionPosition="bottom-left"
       />
     </FlowContainer>
   );

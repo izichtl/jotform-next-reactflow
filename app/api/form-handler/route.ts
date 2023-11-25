@@ -1,56 +1,13 @@
 import { NextResponse, NextRequest } from "next/server";
-import crypto from 'crypto';
-import NodeCache from 'node-cache';
 import { cleanString } from "@/utils/string-modeling";
 import { saveMap } from "@/database/save-map";
 // @ts-ignore
 import { v4 as uuidv4 } from 'uuid';
-import { getMapFromHash } from "@/database/get-map";
-const cache = new NodeCache();
-// @ts-ignore
-import Cors from 'cors';
-import { couldStartTrivia } from "typescript";
-
-export async function GET(request: NextRequest, response: any) {
-
-  const url = new URL(request.url);
-  const searchParams = new URLSearchParams(url.search);
-  const hash = searchParams.get("hash")
-  // const dados = cache.get(hash as string);
-  console.log(hash)
-  // const mockData = JSON.stringify({"firstName":"Ivan ","lastName":"Zichtl ","email":"izichtl@gmail.com","health":["Bom","Bom","Ruim"],"accept":"Sim","motivo":"OEOEOEOEOEOEOE"})
-  // console.log(mockData)
-  const mapData = await getMapFromHash(hash as string)
-  console.log(mapData)
-  return new NextResponse(JSON.stringify(mapData) as string, {
-    status: 200,
-  });
-
-}
-// export async function PUT(request: NextRequest, response: any) {
-//   console.log('@@@@@@@@@@@@@@')
-//   const jsonData = {
-//     submission_id: '19191919191',
-//   }
-//   const resultOfDB = await saveMap(jsonData)
-//   console.log(resultOfDB)
-//   return new NextResponse('' as string, {
-//     status: 200,
-//   });
-
-// }
-
-// const cors = Cors({
-//   origin: 'https://www.jotform.com/',
-//   methods: ['POST', 'GET'], // Adjust the methods as needed
-// });
 
 
-export async function POST(request: Request, response: Response) {
-  console.log('Headers:', request.headers);
-  // await cors(request, response);
+
+export async function POST(request: Request) {
   const bodyData = await request.formData() // bodyData now contains body
-  console.log(bodyData)
   // TRANSFORMA EM ARRAY A KEYS PODENDO ITERAR SOBRE ELAS
   // const keysArray = Array.from(bodyData.keys());
 
