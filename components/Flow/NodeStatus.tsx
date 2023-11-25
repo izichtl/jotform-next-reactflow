@@ -1,6 +1,6 @@
 import { memo, FC, CSSProperties } from 'react';
 import { Handle, Position, NodeProps } from 'reactflow';
-import { IconControl, NodeIconContainer, TextNode } from './style';
+import { IconControl, NodeStyleContainer, StatusControl, TextNode } from './style';
 
 const sourceHandleStyleA: CSSProperties = {
   color: 'blue',
@@ -10,12 +10,12 @@ const sourceHandleStyleA: CSSProperties = {
 
 const CustomNode: FC<NodeProps> = ({ data }) => {
   return (
-    <>
+    <> 
       <div>
-        <NodeIconContainer className="flex items-center justify-center">
-          <IconControl>{data.icon}</IconControl>
-          <TextNode>{data.label}</TextNode>
-        </NodeIconContainer>
+        <NodeStyleContainer className="flex items-center justify-center">
+          <TextNode>{data.label.toUpperCase()}</TextNode>
+          <StatusControl>{data.status}</StatusControl>
+        </NodeStyleContainer>
       </div>
       <Handle
         type="source"

@@ -1,11 +1,4 @@
-.flow {
-  /* flex-grow: 1; */
-  font-size: 15px;
-  height: 500px;
-  width: 700px;
-  background-color: white;
-  /* border: 1px solid #555; */
-}
+
 
 .customNode {
   border: 1px solid #555;
@@ -14,6 +7,10 @@
   width: 100px;
   border-radius: 30px;
 }
+.dot {
+  width: 1px;
+  height: 1px;
+}
 .customNeutral {
   border: 1px solid white;
   font-size: 10px;
@@ -21,30 +18,31 @@
   background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
   padding: 8px;
   width: 100px;
+  height: 36px;
   border-radius: 30px;
 }
 .customGood {
   border: 1px solid white;
-  font-size: 10px;
+  /* font-size: 20px; */
   background-color: #bef264;
-  padding: 8px;
-  width: 100px;
+  padding: 0px 12px;
+  width: max-content;
   border-radius: 30px;
 }
 .customRegular {
   border: 1px solid white;
-  font-size: 10px;
+  /* font-size: 20px; */
   background-color: #fef08a;
-  padding: 8px;
-  width: 100px;
+  padding: 0px 12px;
+  width: max-content;
   border-radius: 30px;
 }
 .customBad {
   border: 1px solid white;
-  font-size: 10px;
+  /* font-size: 20px; */
   background-color: #fda4af;
-  padding: 8px;
-  width: 100px;
+  padding: 0px 12px;
+  width: max-content;
   border-radius: 30px;
 }
 
