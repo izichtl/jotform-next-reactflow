@@ -1,11 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-// import axios from 'axios'
 import Flow from '@/components/Flow'
-import MapHeader from '../MapHeader'
-// import ReactLoading from 'react-loading';
-// import {Container} from './style'
 
 export default function FlowContainer() {
   const searchParams = useSearchParams()
@@ -31,7 +27,6 @@ export default function FlowContainer() {
   },[data])
   return (
     <>
-      {/* <MapHeader /> */}
       {data !== null && (
         <Flow
         data={data}

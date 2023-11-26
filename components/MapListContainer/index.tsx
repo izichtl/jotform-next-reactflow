@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import MapForm from '../MapForm';
 import { FormContainer, FormDivider, NewSearchButton, NoDataContainer, NoDataText, PageSubtitle, PageTitle, StyledTR } from './styles';

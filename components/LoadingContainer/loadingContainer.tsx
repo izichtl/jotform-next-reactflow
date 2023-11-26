@@ -1,6 +1,5 @@
 'use client'
-import ReactLoading from 'react-loading';
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { redirect } from 'next/navigation'
 import axios from 'axios'

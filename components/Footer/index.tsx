@@ -1,5 +1,5 @@
 "use client"
-import { FooterWrapper, CompanyInfo, Copyright, FooterWrapperX } from './styles'
+import { FooterWrapper, CompanyInfo, Copyright } from './styles'
 
 const Footer: React.FC = () => {
   return (
