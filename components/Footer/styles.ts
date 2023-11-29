@@ -1,16 +1,14 @@
-import { PRIMARY_GRAY, PRIMARY_GREEN, SECONDARY_GRAY } from '@/utils/colors'
+import { DARK_GRAY, PRIMARY_GRAY, PRIMARY_GREEN, SECONDARY_GRAY } from '@/utils/colors'
 import styled from 'styled-components'
 
 export const FooterWrapper = styled.footer`
-  background: ${PRIMARY_GREEN};
+  background: ${DARK_GRAY};
   color: white;
-  border-top: 1px solid ${SECONDARY_GRAY};
   box-sizing: border-box;
   height: 60px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* margin-top: 100px; */
 `
 export const CompanyInfo = styled.div`
     display: flex;
@@ -28,7 +26,7 @@ export const Copyright = styled.div`
     padding: 3vh 12vw;
     font-weight: 500;
     font-size: 16px;
-    color: ${PRIMARY_GRAY};
+    color: #FFF;
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;

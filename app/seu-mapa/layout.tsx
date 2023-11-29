@@ -1,8 +1,8 @@
 'use client'
 
-import Header from '@/components/Header'
 import Footer from '@/components/Footer/index'
 import { StyledMain } from '../general-styles'
+import FrameHeader from '@/components/FramerHeader'
 
 export default function DefaultLayout({
   children,
@@ -12,7 +12,7 @@ export default function DefaultLayout({
 
   return (
     <>
-      <Header />
+      <FrameHeader />
         <StyledMain>
         {children}
         </StyledMain>

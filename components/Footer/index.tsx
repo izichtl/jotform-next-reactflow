@@ -6,7 +6,15 @@ const Footer: React.FC = () => {
     <FooterWrapper>
       <Copyright>
         <CompanyInfo>
-          <p>Copyright © 2023 <a target="_blank" href='https://www.linkedin.com/in/lucas-soares/'>Soares</a> & <a target="_blank" href='https://www.linkedin.com/in/izichtl/'>Zichtl</a> - Todos os direitos reservados</p>
+          <p>
+            {'Copyright © 2023 '}
+            <a
+              target="_blank" 
+              href='https://www.mapdavida.com.br'
+              >
+                {'Mapa da Vida'}
+            </a>
+          </p>
         </CompanyInfo>
       </Copyright>
     </FooterWrapper>
