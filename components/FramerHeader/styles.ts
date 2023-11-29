@@ -1,18 +1,5 @@
 import styled from "styled-components";
-import { PRIMARY_GRAY, PRIMARY_GREEN, SECONDARY_GRAY } from "@/utils/colors";
 
-// export const Container = styled.div`
-//   display: flex;
-//   height: 70px;
-//   background: ${PRIMARY_GREEN};
-//   color: ${PRIMARY_GRAY};
-//   padding: 3vh 12vw;
-//   border-bottom: 1px solid ${SECONDARY_GRAY};
-//   @media (max-width: 768px) {
-//     height: 63px;
-//     padding: 16px;
-//   }
-// `;
 export const NavContainer = styled.nav`
   display: flex;
   align-items: center;
@@ -25,12 +12,6 @@ export const NavContainer = styled.nav`
   background-color: rgb(255, 255, 255);
   width: 100%;
   opacity: 1;
-  /* display: flex;
-  height: 70px;
-  background: ${PRIMARY_GREEN};
-  color: ${PRIMARY_GRAY};
-  padding: 3vh 12vw;
-  border-bottom: 1px solid ${SECONDARY_GRAY}; */
   height: 64px;
   padding: 20px 55px;
   @media (max-width: 768px) {
@@ -50,10 +31,6 @@ export const InsiderContainer = styled.nav`
 `;
 
 export const LogoBox = styled.div`
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row */
   width: 36px;
   height: 36px;
   margin-right: 10px;
@@ -62,7 +39,7 @@ export const LogoBox = styled.div`
     height: 36px;
   }
 `;
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,11 +67,8 @@ export const LogoText = styled.p`
 `;
 
 export const Spacer = styled.div`
-  /* width: 100%; */
   flex-grow: 1;
   @media (max-width: 768px) {
-    /* width: 150px;
-    height: 36px; */
   }
 `;
 export const MenuContainer = styled.div`

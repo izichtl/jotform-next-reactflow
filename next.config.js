@@ -5,14 +5,14 @@ const nextConfig = {
     },
     reactStrictMode: true,
     swcMinify: true,
-    async rewrites() {
-        return [
-            {
-                source: '/',
-                destination: '/landing.html',
-            }
-        ]
-    },
+    // async rewrites() {
+    //     return [
+    //         {
+    //             source: '/',
+    //             destination: '/landing.html',
+    //         }
+    //     ]
+    // },
     async headers() {
         return [
             {

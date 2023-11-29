@@ -8,7 +8,6 @@ interface Props {
   toggleTheme?(): void;
 }
 
-
 const FrameHeader: React.FC<Props> = ({ toggleTheme }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,7 +18,11 @@ const FrameHeader: React.FC<Props> = ({ toggleTheme }) => {
   return (
     <NavContainer>
       <InsiderContainer>
-        <LogoContainer>
+        <LogoContainer
+          href="https://form.jotform.com/232958011261653" 
+          target="_blank"
+          rel="noopener"
+        >
           <LogoBox>
               <Image src={logo} alt="Logotipo Bilheteria digital" />
               </LogoBox>
