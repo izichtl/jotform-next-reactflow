@@ -19,7 +19,7 @@ const FrameHeader: React.FC<Props> = ({ toggleTheme }) => {
     <NavContainer>
       <InsiderContainer>
         <LogoContainer
-          href="https://form.jotform.com/232958011261653" 
+          href="http://mapadavida.com"
           target="_blank"
           rel="noopener"
         >
