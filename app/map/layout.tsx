@@ -3,6 +3,7 @@
 import Footer from '@/components/Footer/index'
 import { StyledMain } from '../general-styles'
 import FrameHeader from '@/components/FramerHeader'
+import { Container } from './style'
 
 export default function DefaultLayout({
   children,
@@ -11,12 +12,12 @@ export default function DefaultLayout({
 }) {  
 
   return (
-    <>
+    <Container>
       <FrameHeader />
         <StyledMain>
         {children}
         </StyledMain>
       <Footer />
-    </>
+    </Container>
   )
 }

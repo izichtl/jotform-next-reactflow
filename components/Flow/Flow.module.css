@@ -54,4 +54,11 @@
   width: max-content;
   border-radius: 30px;
 }
-
+.customStatus {
+  border: 1px solid white;
+  /* font-size: 20px; */
+  background-color: #bef264;
+  padding: 0px 12px;
+  width: max-content;
+  border-radius: 30px;
+}

@@ -17,6 +17,7 @@ import ReactFlow, {
 } from 'reactflow';
 import CustomNode from './CustomNode';
 import NodeStatus from './NodeStatus';
+import NodeArea from './NodeArea';
 import 'reactflow/dist/style.css';
 import styles from './Flow.module.css';
 import { FlowContainer } from './style'
@@ -47,95 +48,23 @@ function Flow( { data, mind, body, spirit }: any) {
     },
     {
       id: '2',
-      type: 'custom',
+      type: 'area',
       data: { label: 'MENTE', icon: '🧠', invert: false  },
-      position:  { x: (dimensionX+ 200)  , y: (dimensionY - 200) },
-      className: styles.customAreaNode,
+      position:  { x: (dimensionX + 500)  , y: (dimensionY + 250) },
+      // className: styles.customAreaNode,
     },
     {
       id: '3',
-      type: 'custom',
+      type: 'area',
       data: { label: 'CORPO', icon: '🏃🏻‍♀️', invert: false  },
-      position:  { x: (dimensionX+ 150)  , y: (dimensionY + 210) },
-      className: styles.customAreaNode,
+      position:  { x: (dimensionX)  , y: (dimensionY + 250) },
     },
     {
       id: '4',
-      type: 'custom',
+      type: 'area',
       data: { label: 'ESPÍRITO', icon: '🧘🏽', invert: false  },
-      position:  { x: (dimensionX- 200)  , y: (dimensionY - 60) },
-      className: styles.customAreaNode,
+      position:  { x: (dimensionX - 500)  , y: (dimensionY + 250) },
     },
-    // {
-    //   id: '2-1',
-    //   type: 'status',
-    //   data: { label: 'MENTE_A', status: 'Equilíbrio', invert: false },
-    //   position:  { x: (q+ 400)  , y: (halfY-400) },
-    //   className: styles.customNeutral,
-    // },
-    // {
-    //   id: '2-2',
-    //   type: 'status',
-    //   data: { label: 'MENTE_B', status: 'Alerta', invert: false },
-    //   position:  { x: (q+ 500)  , y: (halfY-230) },
-    //   className: styles.customNeutral,
-    // },
-    // {
-    //   id: '2-3',
-    //   type: 'status',
-    //   data: { label: 'MENTE_C', status: 'Atenção', invert: false },
-    //   position:  { x: (q+ 600)  , y: (halfY-50) },
-    //   className: styles.customNeutral,
-    // },
-    // {
-    //   id: '3-1',
-    //   type: 'status',
-    //   data: { label: 'CORPO_A', status: 'Equilíbrio', invert: false },
-    //   position:  { x: (q+ 350)  , y: (halfY+60) },
-    //   className: styles.customNeutral,
-    // },
-    // {
-    //   id: '3-2',
-    //   type: 'status',
-    //   data: { label: 'CORPO_B', status: 'Alerta', invert: false },
-    //   position:  { x: (q+ 490)  , y: (halfY+240) },
-    //   className: styles.customNeutral,
-    // },
-    // {
-    //   id: '3-3',
-    //   type: 'status',
-    //   data: { label: 'CORPO_C', status: 'Atenção', invert: false },
-    //   position:  { x: (q+ 360)  , y: (halfY+ 400) },
-    //   className: styles.customNeutral,
-    // },
-    // {
-    //   id: '4-1',
-    //   type: 'status',
-    //   data: { label: 'ESPÍRITO_A', status: 'Equilíbrio', invert: false },
-    //   position:  { x: (q-400)  , y: (halfY-200) },
-    //   className: styles.customNeutral,
-    // },
-    // {
-    //   id: '4-2',
-    //   type: 'status',
-    //   data: { label: 'ESPÍRITO_B', status: 'Alerta', invert: false },
-    //   position:  { x: (q-480)  , y: (halfY-20) },
-    //   className: styles.customNeutral,
-    // },
-    // {
-    //   id: '4-3',
-    //   type: 'status',
-    //   data: { label: 'ESPÍRITO_C', status: 'Atenção', invert: false },
-    //   position:  { x: (q-360)  , y: (halfY+ 150) },
-    //   className: styles.customNeutral,
-    // },
-    // {
-    //   id: '0',
-    //   type: 'custom',
-    //   data: { label: 'NOME', sub: 'data' },
-    //   position:  { x: 0  , y: 0 },
-    //   className: styles.customNeutral,
-    // },
   ]
 
 const getMindNodes = (index: number, arr: any[], uniqueX: number, uniqueY: number) => {
@@ -143,9 +72,8 @@ const getMindNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
       return {
         id: '2-1',
         type: 'status',
-        data: { label: arr[0], status: arr[1], invert: false },
-        position:  { x: (uniqueX + 400)  , y: (uniqueY - 400) },
-        className: returnStyle(arr[1]),
+        data: { label: arr[0], status: arr[1], invert: false, },
+        position:  { x: (uniqueX + 150)  , y: (uniqueY + 250) },
       }
   }
   if (index === 1){
@@ -153,8 +81,7 @@ const getMindNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
       id: '2-2',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX + 500)  , y: (uniqueY - 230) },
-      className: returnStyle(arr[1]),
+      position:  { x: (uniqueX + 5)  , y: (uniqueY + 250) },
     }
   }
   if (index === 2){
@@ -162,8 +89,7 @@ const getMindNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
       id: '2-3',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX + 600)  , y: (uniqueY - 50) },
-      className: returnStyle(arr[1]),
+      position:  { x: (uniqueX - 150)  , y: (uniqueY + 250) },
     }
   }
 }
@@ -173,8 +99,7 @@ const getBodyNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
         id: '3-1',
         type: 'status',
         data: { label: arr[0], status: arr[1], invert: false },
-        position:  { x: (uniqueX + 350)  , y: (uniqueY + 60) },
-        className: returnStyle(arr[1]),
+        position:  { x: (uniqueX + 150)  , y: (uniqueY + 250) },
       }
   }
   if (index === 1){
@@ -182,8 +107,7 @@ const getBodyNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
       id: '3-2',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX + 490)  , y: (uniqueY + 240) },
-      className: returnStyle(arr[1]),
+      position:  { x: (uniqueX - 10)  , y: (uniqueY + 250) },
     }
   }
   if (index === 2){
@@ -191,8 +115,7 @@ const getBodyNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
       id: '3-3',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX + 360)  , y: (uniqueY + 400) },
-      className: returnStyle(arr[1]),
+      position:  { x: (uniqueX - 150)  , y: (uniqueY + 250) },
     }
   }
 }
@@ -202,8 +125,7 @@ const getSpiritNodes = (index: number, arr: any[], uniqueX: number, uniqueY: num
         id: '4-1',
         type: 'status',
         data: { label: arr[0], status: arr[1], invert: false },
-        position:  { x: (uniqueX - 400)  , y: (uniqueY - 200) },
-        className: returnStyle(arr[1]),
+        position:  { x: (uniqueX  + 150)  , y: (uniqueY  + 250) },
       }
   }
   if (index === 1){
@@ -211,8 +133,7 @@ const getSpiritNodes = (index: number, arr: any[], uniqueX: number, uniqueY: num
       id: '4-2',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX - 480)  , y: (uniqueY - 20) },
-      className: returnStyle(arr[1]),
+      position:  { x: (uniqueX - 10)  , y: (uniqueY  + 250) },
     }
   }
   if (index === 2){
@@ -220,22 +141,21 @@ const getSpiritNodes = (index: number, arr: any[], uniqueX: number, uniqueY: num
       id: '4-3',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX - 360)  , y: (uniqueY + 150) },
-      className: returnStyle(arr[1]),
+      position:  { x: (uniqueX  - 150)  , y: (uniqueY  + 250) },
     }
   }
 }
 
 mind.forEach((item: any, index: number) => {
   console.debug(item, 'render')
-  const node: any = getMindNodes(index, item, dimensionX, dimensionY)
+  const node: any = getMindNodes(index, item, base[1].position.x, base[1].position.y)
   console.debug(node, 'node')
   base.push(node)
   return
 })
 body.forEach((item: any, index: number) => {
   console.debug(item, 'render')
-  const node: any = getBodyNodes(index, item, dimensionX, dimensionY)
+  const node: any = getBodyNodes(index, item, base[2].position.x, base[2].position.y)
   console.debug(node, 'node')
   base.push(node)
   return
@@ -243,7 +163,7 @@ body.forEach((item: any, index: number) => {
 
 spirit.forEach((item: any, index: number) => {
   console.debug(item, 'render')
-  const node: any = getSpiritNodes(index, item, dimensionX, dimensionY)
+  const node: any = getSpiritNodes(index, item, base[3].position.x, base[3].position.y)
   console.debug(node, 'node')
   base.push(node)
   return
@@ -252,7 +172,7 @@ spirit.forEach((item: any, index: number) => {
 const initialEdges: Edge[] = [
   { id: '001', source: 'base', target: '2' },
   { id: '002', source: 'base', target: '3' },
-  { id: '003', source: '4', target: 'base' },
+  { id: '003', source: 'base', target: '4' },
   { id: '004', source: '4', target: '1' },
   { id: '005', source: '2', target: '2-1' },
   { id: '006', source: '2', target: '2-2' },
@@ -260,14 +180,15 @@ const initialEdges: Edge[] = [
   { id: '008', source: '3', target: '3-1' },
   { id: '009', source: '3', target: '3-2' },
   { id: '010', source: '3', target: '3-3' },
-  { id: '011', source: '4-1', target: '4' },
-  { id: '012', source: '4-2', target: '4' },
-  { id: '013', source: '4-3', target: '4' },
+  { id: '011', source: '4', target: '4-1' },
+  { id: '012', source: '4', target: '4-2' },
+  { id: '013', source: '4', target: '4-3' },
 ];
 
 const nodeTypes = {
   custom: CustomNode,
   status: NodeStatus,
+  area: NodeArea,
 };
 
 const defaultEdgeOptions = {
@@ -283,7 +204,10 @@ const defaultEdgeOptions = {
     <FlowContainer >     
       <ReactFlow
         style={{
-          backgroundColor: '#fff',
+          // max-heigt
+          width: '100vh',
+          backgroundColor: 'white',
+          border: '1px solid #F5F7F9',
           marginBottom: '0px',
           margin: '0px'
         }}
@@ -292,13 +216,12 @@ const defaultEdgeOptions = {
         edges={initialEdges}
         // onNodesChange={onNodesChange}
         nodeTypes={nodeTypes}
-        defaultViewport={{ x: 0, y: 0, zoom: 1 }}
+        defaultViewport={{ x: dimensionX, y: dimensionY, zoom: 1 }}
         defaultEdgeOptions={defaultEdgeOptions}
         connectionLineType={ConnectionLineType.SmoothStep}
-        // attributionPosition="bottom-left"
+        attributionPosition="bottom-left"
       />
     </FlowContainer>
   );
 }
-
 export default Flow;

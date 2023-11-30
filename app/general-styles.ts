@@ -6,7 +6,7 @@ export const StyledMain = styled.main`
     flex-direction: column;
     height: 100%;
     flex-grow: 1;
-    padding: 3vh 12vw;
+    padding: 10px 10px;
     background-color: "#F8F8FF";
     @media (max-width: 768px) {
     padding: 6px;

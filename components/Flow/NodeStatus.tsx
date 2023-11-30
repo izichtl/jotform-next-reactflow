@@ -1,6 +1,7 @@
+import { NODE_BAD, NODE_GOD, NODE_REGULAR } from '@/utils/colors';
 import { memo, FC, CSSProperties } from 'react';
 import { Handle, Position, NodeProps } from 'reactflow';
-import { IconControl, NodeStyleContainer, StatusControl, TextNode } from './style';
+import { NodeStyleContainer, StatusControl, StatusNodeText, TextNode } from './style';
 
 const sourceHandleStyleA: CSSProperties = {
   color: 'blue',
@@ -8,24 +9,34 @@ const sourceHandleStyleA: CSSProperties = {
   border: '1px',
 };
 
+const statusColors = (i: any) => {
+  if(i === 'equilibrada' || i === 'Equilíbrio' ) return NODE_GOD
+  if(i === 'alerta' || i === 'Alerta') return NODE_REGULAR
+  if(i === 'atencao' || i === 'Atenção') return NODE_BAD
+}
+
 const CustomNode: FC<NodeProps> = ({ data }) => {
   return (
     <> 
-      <div>
-        <NodeStyleContainer className="flex items-center justify-center">
-          <TextNode>{data.label.toUpperCase()}</TextNode>
-          <StatusControl>{data.status}</StatusControl>
+      {/* <div> */}
+        <NodeStyleContainer 
+        // className="flex items-center justify-center"
+        >
+          <StatusNodeText>{data.label.toUpperCase()}</StatusNodeText>
+            <StatusControl
+              statusColor={statusColors(data.status)}
+            >{data.status}
+            </StatusControl>
         </NodeStyleContainer>
-      </div>
-      <Handle
+      {/* <Handle
         type="source"
-        position={!data.invert ? Position.Right : Position.Left}
+        position={!data.invert ? Position.Bottom : Position.Top}
         id="1"
         style={sourceHandleStyleA}
-      />
+      /> */}
       <Handle
         type="target"
-        position={!data.invert ? Position.Left : Position.Right}
+        position={!data.invert ? Position.Top : Position.Bottom}
         id="b"
         style={sourceHandleStyleA}
       />

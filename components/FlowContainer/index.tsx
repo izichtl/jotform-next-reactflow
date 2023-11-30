@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Flow from '@/components/Flow'
+import { Container } from './style'
 
 export default function FlowContainer() {
   const searchParams = useSearchParams()
@@ -26,14 +27,14 @@ export default function FlowContainer() {
   useEffect(()=>{
   },[data])
   return (
-    <>
+    <Container>
       {data !== null && (
         <Flow
-        data={data}
-        mind={data.maps[0]}
-        body={data.maps[1]}
-        spirit={data.maps[2]}
+          data={data}
+          mind={data.maps[0]}
+          body={data.maps[1]}
+          spirit={data.maps[2]}
         />
         )}
-  </>)
+  </Container>)
 }

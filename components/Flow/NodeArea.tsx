@@ -1,6 +1,6 @@
 import { memo, FC, CSSProperties } from 'react';
 import { Handle, Position, NodeProps } from 'reactflow';
-import { IconControl, NodeIconContainer, TextNode } from './style';
+import { AreaIconControl, AreaNodeContainer, AreaNodeText, IconControl, NodeIconContainer, TextNode } from './style';
 
 const sourceHandleStyleA: CSSProperties = {
   color: 'blue',
@@ -8,14 +8,14 @@ const sourceHandleStyleA: CSSProperties = {
   border: '1px',
 };
 
-const CustomNode: FC<NodeProps> = ({ data }) => {
+const NodeArea: FC<NodeProps> = ({ data }) => {
   return (
     <>
       <div>
-        <NodeIconContainer className="flex items-center justify-center">
-          <IconControl>{data.icon}</IconControl>
-          <TextNode>{data.label}</TextNode>
-        </NodeIconContainer>
+        <AreaIconControl>{data.icon}</AreaIconControl>
+        <AreaNodeContainer className="flex items-center justify-center">
+          <AreaNodeText>{data.label}</AreaNodeText>
+        </AreaNodeContainer>
       </div>
       <Handle
         type="source"
@@ -33,4 +33,4 @@ const CustomNode: FC<NodeProps> = ({ data }) => {
   );
 };
 
-export default memo(CustomNode);
+export default memo(NodeArea);

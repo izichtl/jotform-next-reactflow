@@ -27,7 +27,7 @@ const FrameHeader: React.FC<Props> = ({ toggleTheme }) => {
               <Image src={logo} alt="Logotipo Bilheteria digital" />
               </LogoBox>
           <LogoText>
-              {'mapa da vida'}
+              {'mapadavida'}
           </LogoText>
         </LogoContainer>
         <Spacer />

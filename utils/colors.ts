@@ -7,3 +7,10 @@ export const DARK_GRAY = '#413d43'
 export const SECONDARY_GRAY = '#697586'
 export const SECONDARY_BLUE = '#F0F8FF'
 
+export const NODE_PERSON = '#5DADE2'
+export const NODE_AREA = '#018868'
+export const NODE_SUBAREA = '#84C16D' 
+export const NODE_GOD = '#018868'
+export const NODE_REGULAR =  '#FFE500'
+export const NODE_BAD = '#E60000' 
+

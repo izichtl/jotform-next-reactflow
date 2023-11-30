@@ -9,8 +9,6 @@ import FlowContainer from '@/components/FlowContainer'
 
 export default async function Home({ params }: any) {
   return (
-    <>
     <FlowContainer />
-    </>
   )
 }
