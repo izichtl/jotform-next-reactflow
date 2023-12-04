@@ -7,3 +7,16 @@ export function obterPrimeiroNome(frase: string): string {
   
     return primeiroNome;
   }
+
+
+  export function converterFormatoData(dataString: string): string {
+    const dataObj = new Date(dataString);
+    
+    const dia = String(dataObj.getUTCDate()).padStart(2, '0');
+    const mes = String(dataObj.getUTCMonth() + 1).padStart(2, '0'); // Adicionando 1, pois os meses começam do zero
+    const ano = dataObj.getUTCFullYear();
+  
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+  
+    return dataFormatada;
+  }

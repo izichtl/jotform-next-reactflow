@@ -1,9 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
-
 import MapForm from '../MapForm';
-import { FormContainer, FormDivider, NewSearchButton, NoDataContainer, NoDataText, PageSubtitle, PageTitle, StyledTR } from './styles';
-import { obterPrimeiroNome } from '../utils/data-format';
+import { FormContainer, FormDivider, MainContainer, NewSearchButton, NoDataContainer, NoDataText, PageSubtitle, PageTitle, StyledTR } from './styles';
+import MapsTable from '../MapsTable';
 
 const startTitle = 'Busca de Mapas'
 const startSubtitle = 'Informe seu email e sua data de nascimento para buscar seus mapas da vida!'
@@ -12,52 +11,25 @@ const startMapData = {
   data: []
 }
 
-function converterFormatoData(dataString: string): string {
-  const dataObj = new Date(dataString);
-  
-  // Obtendo componentes da data
-  const dia = String(dataObj.getUTCDate()).padStart(2, '0');
-  const mes = String(dataObj.getUTCMonth() + 1).padStart(2, '0'); // Adicionando 1, pois os meses começam do zero
-  const ano = dataObj.getUTCFullYear();
-
-  // Formatando a data no formato desejado
-  const dataFormatada = `${dia}/${mes}/${ano}`;
-
-  return dataFormatada;
-}
-const TabelaDados = ({ dados }: any) => {
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Data</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        {dados.map((item: any, index: number) => {
-          const user = JSON.parse(item.mapjson)
-          return (
-          <StyledTR
-            key={index}
-          >
-            <td>{'_' + obterPrimeiroNome(user.fullName)}</td>
-            <td>{'_' + item.email}</td>
-            <td>{'_' + converterFormatoData(item.data)}</td>
-            <td><a href={`loading?hash=${item.hash}`} target={'_blank'}>ABRIR</a></td>
-          </StyledTR>
-        )})}
-      </tbody>
-    </table>
-  );
-};
-
 export default function MapListContainer() {
+  const screenLimit = 762
+  let innerWidth: number = 0
+  if (typeof window !== 'undefined') {
+    innerWidth = window.innerWidth
+  }
+  const [screenWidth, setScreenWidth] = useState(innerWidth)
+  let isMobile = screenWidth < screenLimit
+  
   const [mapList, setMapList] = useState<any>(startMapData)
   const [title, setTitle] = useState<string>(startTitle)
   const [subtitle, setSubTitle] = useState<string>(startSubtitle)
+
+  const handleWindowSizeChange = (): void => {
+    if (typeof window !== 'undefined') {
+        setScreenWidth(window.innerWidth)
+        isMobile = screenWidth < screenLimit
+      }
+  }
 
   const cleanSearch = () => {
     setTitle(startTitle)
@@ -65,21 +37,28 @@ export default function MapListContainer() {
     setMapList(startMapData)
   }
 
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange)
+    return () => {
+        window.removeEventListener('resize', handleWindowSizeChange)
+    }
+  }, []) 
+
   useEffect(()=>{
-    console.debug(mapList, '@')
     if(mapList.success) {
       setTitle('Listagem de mapas cadastrados')
       setSubTitle('Selecione o mapa desejado para visualizar')
     }
   },[mapList] )
+
   return (
-    <>
+    <MainContainer>
       <PageTitle>{title}</PageTitle>
       <PageSubtitle>{subtitle}</PageSubtitle>
       <FormDivider />
       {(mapList.success && mapList.data[0] !== undefined) && (
         <>
-        <TabelaDados dados={mapList.data} />
+        <MapsTable data={mapList.data} isMobile={isMobile} />
         <NewSearchButton onClick={cleanSearch}>Nova Busca</NewSearchButton>
         </>
       )}
@@ -97,6 +76,6 @@ export default function MapListContainer() {
           <NewSearchButton onClick={cleanSearch}>Nova Busca</NewSearchButton>
         </NoDataContainer>
       )}
-    </>
+    </MainContainer>
     )
 }

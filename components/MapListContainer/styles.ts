@@ -1,5 +1,13 @@
-import { PRIMARY_GRAY, PRIMARY_GREEN, SECONDARY_GRAY } from "@/utils/colors";
+import { NODE_AREA, PRIMARY_GRAY, PRIMARY_GREEN, SECONDARY_GRAY } from "@/utils/colors";
 import styled from "styled-components";
+
+export const MainContainer = styled(styled.div``)`
+  padding: 0px 12vh;
+  @media (max-width: 768px) {
+    padding: 0px 2vh;
+  }
+  
+`;
 
 export const FormContainer = styled(styled.div``)`
   display: flex;
@@ -41,7 +49,6 @@ export const PageSubtitle = styled.p`
   font-weight: 500;
   line-height: normal;
   @media (max-width: 768px) {
-    font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -70,20 +77,19 @@ export const NewSearchButton = styled.button`
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
-  border-radius: 5px;
-  color: ${PRIMARY_GRAY};
+  border-radius: 30px;
+  color: #FFF;
   text-align: center;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 150%; /* 24px */
   letter-spacing: 0.08px;
-  background: ${PRIMARY_GREEN};
+  background: ${NODE_AREA};
   margin: 20px auto;
   cursor: pointer;
   @media (max-width: 768px) {
     width: 90%;
-    /* max-width: 50%; */
     margin: 20px auto;
   }
 `;
@@ -103,7 +109,6 @@ export const NoDataText = styled.p`
   line-height: normal;
   margin: 7px 5px; 
   @media (max-width: 768px) {
-    font-family: Inter;
     font-size: 15px;
     font-style: normal;
     font-weight: 400;

@@ -6,9 +6,9 @@ export const FlowContainer = styled.div`
   flex-grow: 1;
   height: 100vh;
   width: 100%;
-  background-color: red;
+  margin: 0px;
   @media (max-width: 768px) {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
   }
 `
@@ -20,10 +20,6 @@ export const NodeIconContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* background-color: #5DADE2; */
-  /* height: 36px; */
-  /* width: 100px; */
-  /* border-radius: 30px; */
   top: -63px;
 `
 export const IconControl = styled.p`
@@ -37,7 +33,6 @@ export const TextNode = styled.strong`
 //  AREA NODE STYLES
 export const AreaNodeContainer = styled.div`
   display: flex;
-  /* position: relative; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -45,7 +40,6 @@ export const AreaNodeContainer = styled.div`
   height: 36px;
   width: 100px;
   border-radius: 30px;
-  /* top: -63px; */
 `
 export const AreaIconControl = styled.p`
   font-size: 35px;
@@ -62,7 +56,7 @@ export const AreaNodeText = styled.strong`
 
 // STATUS NODE STYLES
 export const NodeStyleContainer = styled.div`
-  width: max-content;
+  width: 160px;
   background-color: ${NODE_SUBAREA};
   padding: 15px;
   border-radius: 5px;
@@ -79,7 +73,9 @@ export const NodeStyleContainer = styled.div`
 export const StatusNodeText = styled.strong`
   position: relative;
   top: 10px;
-  font-size: 13px;
+  font-size: 12px;
+  color: #fff;
+  letter-spacing: 1.1px;
 `
 
 

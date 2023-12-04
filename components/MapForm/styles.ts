@@ -2,7 +2,7 @@
 import styled, {css} from "styled-components";
 // @ts-ignore
 import Modal from "react-modal";
-import { PRIMARY_ERROR, PRIMARY_GRAY, PRIMARY_GREEN, SECONDARY_BLUE, SECONDARY_GRAY } from "@/utils/colors";
+import { NODE_AREA, PRIMARY_ERROR, PRIMARY_GRAY, PRIMARY_GREEN, SECONDARY_BLUE, SECONDARY_GRAY } from "@/utils/colors";
 
 export const StyledForm = styled(styled.form``)`
   display: flex;
@@ -87,20 +87,19 @@ export const SearchButton = styled.button`
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
-  border-radius: 5px;
-  color: ${PRIMARY_GRAY};
+  border-radius: 30px;
+  color: #FFF;
   text-align: center;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 150%; /* 24px */
+  line-height: 150%;
   letter-spacing: 0.08px;
-  background: ${PRIMARY_GREEN};
+  background: ${NODE_AREA};
   cursor: pointer;
   margin:5px;
   @media (max-width: 768px) {
     width: 50%;
-    /* max-width: 50%; */
     margin:5px;
   }
 `;
@@ -114,7 +113,7 @@ export const CancelButton = styled.button`
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
-  border-radius: 5px;
+  border-radius: 30px;
   border: 1px solid ${SECONDARY_GRAY};
   color: ${SECONDARY_GRAY};
   text-align: center;

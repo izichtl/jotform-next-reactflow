@@ -119,5 +119,24 @@ export const DivButton = styled.div`
   text-align: start;
 
   @media (max-width: 768px) {
+    display: none;
   }
+`;
+
+export const HamburgerIconContainer = styled.div`
+  display: none; 
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+`;
+
+export const HamburgerStripe = styled.div`
+  width: 20px;
+  height: 2px;
+  margin-bottom:8px;
+  background-color: gray;
 `;

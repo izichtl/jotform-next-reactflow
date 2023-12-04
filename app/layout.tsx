@@ -1,12 +1,11 @@
 import './css/style.css'
-import { Inter } from 'next/font/google'
+import { Inter, Oxygen } from 'next/font/google'
 import StyleRegistry from './registry'
 import Banner from '@/components/banner'
 
-const inter = Inter({
+const oxygen = Oxygen({
   subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap'
+  weight: ['300', '400','700']
 })
 
 export const metadata = {
@@ -21,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-inter antialiased bg-white text-gray-900 tracking-tight`}>
+      <body className={`${oxygen.className} antialiased bg-white text-gray-900 tracking-tight`}>
         <StyleRegistry>
           <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
             {children}

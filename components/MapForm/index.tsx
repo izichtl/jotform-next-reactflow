@@ -1,8 +1,6 @@
-
 'use client'
 import React from 'react';
 import axios from 'axios'
-import { redirect } from 'next/navigation'
 import { useRouter } from 'next/navigation';
 
 // @ts-ignore
@@ -33,7 +31,6 @@ const MapForm = ({ setMapList }:any) => {
   const navigateUser = () => {
     formik.setErrors({})
     router.replace('/')
-    // redirect('/')
   };
 
   const validationSchema = Yup.object().shape({

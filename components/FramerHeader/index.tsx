@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import logo from "../../public/images/svg/logo.svg";
 import Image from "next/image";
-import { DivButton, InsiderContainer, LogoBox, LogoContainer, LogoText, MenuContainer, MenuItem, NavContainer, Spacer } from "./styles";
+import { DivButton, HamburgerContainer, HamburgerIconContainer, HamburgerStripe, InsiderContainer, LogoBox, LogoContainer, LogoText, MenuContainer, MenuItem, NavContainer, Spacer } from "./styles";
+import MenuModal from "../MenuHamburger";
 
 interface Props {
   toggleTheme?(): void;
@@ -59,6 +60,15 @@ const FrameHeader: React.FC<Props> = ({ toggleTheme }) => {
             Crie seu mapa
           </a>
         </DivButton>
+
+        <HamburgerIconContainer onClick={handleMenuToggle}>
+            {/* <HamburgerIcon src={hamburgerIcon} alt="Menu Hamburger" /> */}
+            {/* <HamburgerContainer> */}
+              <HamburgerStripe />
+              <HamburgerStripe />
+            {/* </HamburgerContainer> */}
+          </HamburgerIconContainer>
+          <MenuModal isOpen={menuOpen} onRequestClose={handleMenuToggle} />
         </MenuContainer>
       </InsiderContainer>
     </NavContainer>

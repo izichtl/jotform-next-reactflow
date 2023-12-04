@@ -1,19 +1,8 @@
 "use client"
 import { useEffect, useState } from 'react';
 import ReactFlow, {
-  // Node,
-  // Controls,
-  // Background,
-  // useNodesState,
-  // useEdgesState,
-  // addEdge,
-  // Connection,
   Edge,
   ConnectionLineType,
-  // ReactFlowProvider, 
-  // useReactFlow,
-  // applyNodeChanges,
-  // applyEdgeChanges,
 } from 'reactflow';
 import CustomNode from './CustomNode';
 import NodeStatus from './NodeStatus';
@@ -22,20 +11,15 @@ import 'reactflow/dist/style.css';
 import styles from './Flow.module.css';
 import { FlowContainer } from './style'
 import { obterPrimeiroNome } from '../utils/data-format';
+import { NODE_AREA, PRIMARY_GRAY } from '@/utils/colors';
 
-const returnStyle = (i: any) => {
-  if(i === 'Neutro' ) return styles.customNeutral
-  if(i === 'equilibrada' || i === 'Equilíbrio' ) return styles.customGood
-  if(i === 'alerta' || i === 'Alerta') return styles.customRegular
-  if(i === 'atencao' || i === 'Atenção') return styles.customBad
-}
 
-function Flow( { data, mind, body, spirit }: any) {
+function Flow( { data, mind, body, spirit, isMobile }: any) {
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
-  const dimensionY = (700 - 18) / 2
-  const dimensionX = (screenWidth - (128+150)) / 2
-  console.debug(data, 'USER DATA IN FLOW')
+  const dimensionY = 100
+  // const dimensionY = (700 - 18) / 2
+  const dimensionX = (screenWidth - (128 + 150 + 10)) / 2
 
 
   const base = [
@@ -50,8 +34,7 @@ function Flow( { data, mind, body, spirit }: any) {
       id: '2',
       type: 'area',
       data: { label: 'MENTE', icon: '🧠', invert: false  },
-      position:  { x: (dimensionX + 500)  , y: (dimensionY + 250) },
-      // className: styles.customAreaNode,
+      position:  { x: (dimensionX - 600)  , y: (dimensionY + 250) },
     },
     {
       id: '3',
@@ -63,7 +46,7 @@ function Flow( { data, mind, body, spirit }: any) {
       id: '4',
       type: 'area',
       data: { label: 'ESPÍRITO', icon: '🧘🏽', invert: false  },
-      position:  { x: (dimensionX - 500)  , y: (dimensionY + 250) },
+      position:  { x: (dimensionX + 600)  , y: (dimensionY + 250) },
     },
   ]
 
@@ -73,7 +56,7 @@ const getMindNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
         id: '2-1',
         type: 'status',
         data: { label: arr[0], status: arr[1], invert: false, },
-        position:  { x: (uniqueX + 150)  , y: (uniqueY + 250) },
+        position:  { x: (uniqueX + 175)  , y: (uniqueY + 250) },
       }
   }
   if (index === 1){
@@ -81,7 +64,7 @@ const getMindNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
       id: '2-2',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX + 5)  , y: (uniqueY + 250) },
+      position:  { x: (uniqueX)  , y: (uniqueY + 250) },
     }
   }
   if (index === 2){
@@ -89,7 +72,7 @@ const getMindNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
       id: '2-3',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX - 150)  , y: (uniqueY + 250) },
+      position:  { x: (uniqueX - 175)  , y: (uniqueY + 250) },
     }
   }
 }
@@ -99,7 +82,7 @@ const getBodyNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
         id: '3-1',
         type: 'status',
         data: { label: arr[0], status: arr[1], invert: false },
-        position:  { x: (uniqueX + 150)  , y: (uniqueY + 250) },
+        position:  { x: (uniqueX + 175)  , y: (uniqueY + 250) },
       }
   }
   if (index === 1){
@@ -107,7 +90,7 @@ const getBodyNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
       id: '3-2',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX - 10)  , y: (uniqueY + 250) },
+      position:  { x: (uniqueX)  , y: (uniqueY + 250) },
     }
   }
   if (index === 2){
@@ -115,7 +98,7 @@ const getBodyNodes = (index: number, arr: any[], uniqueX: number, uniqueY: numbe
       id: '3-3',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX - 150)  , y: (uniqueY + 250) },
+      position:  { x: (uniqueX - 175)  , y: (uniqueY + 250) },
     }
   }
 }
@@ -125,7 +108,7 @@ const getSpiritNodes = (index: number, arr: any[], uniqueX: number, uniqueY: num
         id: '4-1',
         type: 'status',
         data: { label: arr[0], status: arr[1], invert: false },
-        position:  { x: (uniqueX  + 150)  , y: (uniqueY  + 250) },
+        position:  { x: (uniqueX  + 175)  , y: (uniqueY  + 250) },
       }
   }
   if (index === 1){
@@ -133,7 +116,7 @@ const getSpiritNodes = (index: number, arr: any[], uniqueX: number, uniqueY: num
       id: '4-2',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX - 10)  , y: (uniqueY  + 250) },
+      position:  { x: (uniqueX)  , y: (uniqueY  + 250) },
     }
   }
   if (index === 2){
@@ -141,30 +124,24 @@ const getSpiritNodes = (index: number, arr: any[], uniqueX: number, uniqueY: num
       id: '4-3',
       type: 'status',
       data: { label: arr[0], status: arr[1], invert: false },
-      position:  { x: (uniqueX  - 150)  , y: (uniqueY  + 250) },
+      position:  { x: (uniqueX  - 175)  , y: (uniqueY  + 250) },
     }
   }
 }
 
 mind.forEach((item: any, index: number) => {
-  console.debug(item, 'render')
-  const node: any = getMindNodes(index, item, base[1].position.x, base[1].position.y)
-  console.debug(node, 'node')
+  const node: any = getMindNodes(index, item, (base[1].position.x - 20), base[1].position.y)
   base.push(node)
   return
 })
 body.forEach((item: any, index: number) => {
-  console.debug(item, 'render')
-  const node: any = getBodyNodes(index, item, base[2].position.x, base[2].position.y)
-  console.debug(node, 'node')
+  const node: any = getBodyNodes(index, item, (base[2].position.x - 20), base[2].position.y)
   base.push(node)
   return
 })
 
 spirit.forEach((item: any, index: number) => {
-  console.debug(item, 'render')
-  const node: any = getSpiritNodes(index, item, base[3].position.x, base[3].position.y)
-  console.debug(node, 'node')
+  const node: any = getSpiritNodes(index, item, (base[3].position.x - 20), base[3].position.y)
   base.push(node)
   return
 })
@@ -194,7 +171,6 @@ const nodeTypes = {
 const defaultEdgeOptions = {
   animated: false,
   type: 'default',
-  // type: 'smoothstep',
 };
 
   useEffect(() => {
@@ -204,19 +180,17 @@ const defaultEdgeOptions = {
     <FlowContainer >     
       <ReactFlow
         style={{
-          // max-heigt
-          width: '100vh',
+          // width: '100vh',
           backgroundColor: 'white',
-          border: '1px solid #F5F7F9',
-          marginBottom: '0px',
-          margin: '0px'
+          border: `1px solid ${NODE_AREA}`,
+          // marginBottom: '0px',
+          // margin: '0 auto'
         }}
         nodes={base}
-        fitView={true}
+        fitView={!isMobile}
         edges={initialEdges}
-        // onNodesChange={onNodesChange}
         nodeTypes={nodeTypes}
-        defaultViewport={{ x: dimensionX, y: dimensionY, zoom: 1 }}
+        defaultViewport={{ x: dimensionX, y: 0, zoom: 1 }}
         defaultEdgeOptions={defaultEdgeOptions}
         connectionLineType={ConnectionLineType.SmoothStep}
         attributionPosition="bottom-left"
