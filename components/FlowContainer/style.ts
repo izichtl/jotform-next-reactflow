@@ -10,56 +10,6 @@ export const Container = styled.div`
   padding: 0px;
 `
 
-
-
-export const PageTitle = styled.h4`
-  color: ${PRIMARY_GRAY};
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 35.2px; /* 110% */
-  margin-top: 40px;
-  margin-bottom: 19px;
-  @media (max-width: 768px) {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 22px; /* 110% */
-    margin-top: 27px;
-    margin-bottom: 13px; 
-  }
-  `;
-export const SecondTitle = styled.h4`
-  color: ${PRIMARY_GRAY};
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 35.2px; /* 110% */
-  margin-top: 40px;
-  margin-bottom: 19px;
-  @media (max-width: 768px) {
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 22px; /* 110% */
-    margin-top: 27px;
-    margin-bottom: 13px; 
-  }
-  `;
-export const PageSubtitle = styled.p`
-  color: ${PRIMARY_GRAY};
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  @media (max-width: 768px) {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-`;
-
 export const FormDivider = styled.div`
   background-color: ${SECONDARY_GRAY};
   width: 100%;
@@ -77,7 +27,6 @@ export const ChipsContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   margin-bottom: 15px;
-  /* background-color: rgb(1, 136, 104); */
 
 `;
 export const ReasonsChips = styled.div`
@@ -104,9 +53,9 @@ export const ReasonsChips = styled.div`
 
   @media (max-width: 768px) {
     height: 24px;
-  font-size: 12px;
-  padding-left: 12px;
-  padding-right: 12px;
+    font-size: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 `;
 export const NotSelectedReasonsChips = styled.div`

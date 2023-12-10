@@ -65,14 +65,9 @@ export const NodeStyleContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* :hover {
-    HOVER INFO BALLON
-    background-color: yellow;
-  } */
 `
 export const StatusNodeText = styled.strong`
   position: relative;
-  top: 10px;
   font-size: 12px;
   color: #fff;
   letter-spacing: 1.1px;
@@ -81,27 +76,23 @@ export const StatusNodeText = styled.strong`
 
 export const StatusControl = styled(styled.p``)<any>`
   position: relative;
-  top: 12px;
-  font-size: 10px;
-  padding: 3px 10px;
+  /* top: 4px; */
+  font-size: 15px;
+  padding: 0px 15px;
   font-weight: 600;
   letter-spacing: 1.1px;
   color: #fff;
   text-align: center;
+`
+export const StatusBox = styled(styled.div``)<any>`
+  padding: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 40px;
   border-radius: 10px;
-  width: max-content;
   ${props => props.statusColor && css`
     background-color: ${props.statusColor};
   `}
-
-`
-export const StatusBox = styled.div`
-  width: 100%;
-/* background-color: red; */
-  /* position: relative; */
-  padding: 10px;
-  /* top: 10px; */
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1.1px;
 `

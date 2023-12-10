@@ -6,7 +6,7 @@ import {
   ActionTH,  
   EmailTH, 
    ButtonIconBox, DataActionTH, 
-   DataNameTH, DataTH, MainContainer, MobileBox, MobileButtonBox, MobileButtonIconBox, MobileContainer, MobileDivider, MobileUpperBox, MobileVerticalDivider, NameTH, RegistrationTH, Spacer, StrongText, StyledDataTR, StyledTable, StyledThead, StyledTR, TextBox, UpperDataText, DataDateTH, DataEmailTH } from './styles'
+   DataNameTH, DataTH, MainContainer, MobileBox, MobileButtonBox, MobileButtonIconBox, MobileContainer, MobileDivider, MobileUpperBox, MobileVerticalDivider, NameTH, RegistrationTH, Spacer, StrongText, StyledDataTR, StyledTable, StyledThead, StyledTR, TextBox, UpperDataText, DataDateTH, DataEmailTH, THtext } from './styles'
 import Image from "next/image";
 import logo from "../../public/images/svg/logo.svg";
 import { converterFormatoData } from '../utils/data-format';
@@ -117,9 +117,14 @@ const TabelaDados = ({ data }: any) => {
         const userData = JSON.parse(item.mapjson)
         return (
           <StyledDataTR key={item.id}>
-            <DataNameTH>{userData.fullName}</DataNameTH>
+            <DataNameTH>
+              <THtext>
+                {userData.fullName}
+              </THtext>
+              </DataNameTH>
             <DataEmailTH>{userData.email}</DataEmailTH>
-            <DataDateTH>{`${converterFormatoData(item.data)} - ${item.data.slice(14, 19)}`}</DataDateTH>
+            <DataDateTH>{`${converterFormatoData(item.data)} - ${item.data.slice(11, 16)}`}</DataDateTH>
+            {/* <DataDateTH>{`${converterFormatoData(item.data)} - ${item.data.slice(14, 19)}`}</DataDateTH> */}
             <DataActionTH>
             <a href={`loading?hash=${item.hash}`} target={'_blank'}>
               <ButtonIconBox
@@ -155,7 +160,7 @@ const MapsTable: FC<InputProps> = (
   { data, isMobile } 
 ): ReactElement => {
 
-    console.debug(isMobile)
+    // console.debug(isMobile)
 
     return (
     <MainContainer>
@@ -163,7 +168,6 @@ const MapsTable: FC<InputProps> = (
         <MobileContainer>
             {data.map((item: any, index: any) => {
               const userData = JSON.parse(item.mapjson)
-              // const validatedAccount = item.accountDigit !== null ? `C/C: ${item.accountNumber}-${item.accountDigit}` : `C/C: ${item.accountNumber}`
               return (
                 <MobileBox
                   key={index}
@@ -179,7 +183,7 @@ const MapsTable: FC<InputProps> = (
                   <MobileButtonBox>
                     <a href={`loading?hash=${item.hash}`} target={'_blank'}>                  
                       <MobileButtonIconBox>
-                        ACESSAR
+                        {'Acessar'}
                       </MobileButtonIconBox>
                     </a>
                   </MobileButtonBox>

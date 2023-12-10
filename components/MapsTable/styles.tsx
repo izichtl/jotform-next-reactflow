@@ -48,14 +48,14 @@ export const MobileButtonBox = styled(styled.div``)`
 
 export const StrongText = styled(styled.p``)`
   color: ${PRIMARY_GRAY};
-  font-size: 11px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 10.6px;
 `
 export const UpperDataText = styled(styled.p``)`
   color: ${PRIMARY_GRAY};
-  font-size: 10px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 13.6px;
@@ -77,7 +77,6 @@ export const TextBox = styled(styled.div``)`
 
 export const MobileButtonIconBox = styled(styled.button``)`
   border-radius: 30px;
-  border: 1px solid ${PRIMARY_GREEN};
   background-color: ${NODE_AREA};
   display: flex;
   width: max-content;
@@ -188,19 +187,25 @@ export const BaseDataTH = styled(styled.th``)`
   line-height: 19.6px;
   height: 22px;
 `
+export const THtext = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+`
 
 export const DataNameTH = styled(BaseDataTH)`
   width: ${nameWidth};
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding-left: 17px;
   border-right: 1px solid ${PRIMARY_GRAY};
+  text-align: left;
 `
 
 export const DataEmailTH = styled(BaseDataTH)`
   width: ${cpfWidth};
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding-left: 17px;
   border-right: 1px solid ${PRIMARY_GRAY};
   border-left: 1px solid ${PRIMARY_GRAY};
@@ -209,7 +214,7 @@ export const DataEmailTH = styled(BaseDataTH)`
 export const DataDateTH = styled(BaseDataTH)`
   width: ${bankWidth};
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding-left: 17px;
   border-right: 1px solid ${PRIMARY_GRAY};
   border-left: 1px solid ${PRIMARY_GRAY};
@@ -251,18 +256,6 @@ export const LogoBox = styled.div`
   margin-right: 10px;
   @media (max-width: 768px) {
     width: 36px;
-    height: 36px;
-  }
-`;
-export const LogoContainer = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row
-  width: 150px;
-  height: 36px;
-  @media (max-width: 768px) {
-    width: 150px;
     height: 36px;
   }
 `;

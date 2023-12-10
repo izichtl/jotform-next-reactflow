@@ -14,14 +14,14 @@ export default function Banner() {
             <div className='text-slate-500 inline-flex'>
               <p 
                 className="font-medium text-slate-50" 
-                rel="noreferrer">Acesse nossa comunidade no</p> 
+                rel="noreferrer">{'Acesse nossa comunidade no'}</p> 
                 <span className="italic px-1"> </span> 
                 <a className="font-medium hover:underline text-emerald-400" 
-                  href="https://chat.whatsapp.com/ImPVuqJXpZDJtef34wykBi" 
+                  href="https://chat.whatsapp.com/IbZIIkGNWuFKRKdMOoR7WO" 
                   target="_blank" 
                   rel="noreferrer"
                 >
-                  Whatsapp
+                  {'Whatsapp'}
                   </a>
                 </div>
             <button className="text-slate-500 hover:text-slate-400 pl-2 ml-3 border-l border-gray-700" onClick={() => setBannerOpen(false)}>

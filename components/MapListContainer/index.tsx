@@ -1,7 +1,18 @@
 'use client'
 import { useEffect, useState } from 'react'
 import MapForm from '../MapForm';
-import { FormContainer, FormDivider, MainContainer, NewSearchButton, NoDataContainer, NoDataText, PageSubtitle, PageTitle, StyledTR } from './styles';
+import {
+  FormContainer,
+  MainContainer,
+  NewSearchButton,
+  NoDataContainer,
+  NoDataText,
+} from './styles';
+import {
+  FormDivider,
+  PageSubtitle,
+  PageTitle,
+} from '../text-styles';
 import MapsTable from '../MapsTable';
 
 const startTitle = 'Busca de Mapas'
@@ -47,7 +58,7 @@ export default function MapListContainer() {
   useEffect(()=>{
     if(mapList.success) {
       setTitle('Listagem de mapas cadastrados')
-      setSubTitle('Selecione o mapa desejado para visualizar')
+      setSubTitle('Veja os seus mapas. Compare versões e acompanhe seu progresso.')
     }
   },[mapList] )
 
@@ -59,7 +70,7 @@ export default function MapListContainer() {
       {(mapList.success && mapList.data[0] !== undefined) && (
         <>
         <MapsTable data={mapList.data} isMobile={isMobile} />
-        <NewSearchButton onClick={cleanSearch}>Nova Busca</NewSearchButton>
+        <NewSearchButton onClick={cleanSearch}>{'Nova Busca'}</NewSearchButton>
         </>
       )}
       {(!mapList.success && mapList.data[0] === undefined) && (
@@ -71,9 +82,8 @@ export default function MapListContainer() {
       )}
       {(!mapList.success && mapList.data[0] !== undefined) && (
         <NoDataContainer>
-          <NoDataText>{'Não foram encontrados mapas com os dados informados'}</NoDataText>
-          <NoDataText>{'Tente novamente!'}</NoDataText>
-          <NewSearchButton onClick={cleanSearch}>Nova Busca</NewSearchButton>
+          <PageSubtitle>{'Não foram encontrados mapas com os dados informados, Tente novamente!'}</PageSubtitle>
+          <NewSearchButton onClick={cleanSearch}>{'Nova Busca'}</NewSearchButton>
         </NoDataContainer>
       )}
     </MainContainer>

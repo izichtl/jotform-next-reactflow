@@ -25,49 +25,6 @@ export const StyledTR = styled(styled.tr``)`
   height: 50px;
 `;
 
-export const PageTitle = styled.h4`
-  color: ${PRIMARY_GRAY};
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 35.2px; /* 110% */
-  margin-top: 40px;
-  margin-bottom: 19px;
-  @media (max-width: 768px) {
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 22px; /* 110% */
-    margin-top: 27px;
-    margin-bottom: 13px; 
-  }
-  `;
-export const PageSubtitle = styled.p`
-  color: ${PRIMARY_GRAY};
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  @media (max-width: 768px) {
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-`;
-
-export const FormDivider = styled.div`
-  background-color: ${SECONDARY_GRAY};
-  width: 100%;
-  height: 2px;
-  margin-top: 29px;
-  margin-bottom: 42px;
-  @media (max-width: 768px) {
-    margin-top: 29px;
-    margin-bottom: 42px;
-  }
-`;
-
 export const NewSearchButton = styled.button`
   display: flex;
   width: 379px;

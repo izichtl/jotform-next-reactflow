@@ -2,8 +2,19 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Flow from '@/components/Flow'
-import { ChipsContainer, Container, FormDivider, NotSelectedReasonsChips, PageSubtitle, PageTitle, ReasonsChips, SecondTitle } from './style'
-import { DivButton } from '../FramerHeader/styles'
+import {
+  ChipsContainer,
+  Container,
+  NotSelectedReasonsChips,
+  ReasonsChips,
+} from './style'
+
+import {
+  PageSubtitle,
+  PageTitle,
+  FormDivider,
+  SecondTitle
+} from '../text-styles'
 
 export default function FlowContainer() {
   const searchParams = useSearchParams()
@@ -25,7 +36,6 @@ export default function FlowContainer() {
       const jsonString = atob(decodeString)
       const jsonObject = JSON.parse(jsonString) 
       const userObject = JSON.parse(jsonObject.mapjson)
-      // console.debug(userObject, 'userObject')
       setData(userObject)
     }
   },[search])
@@ -59,7 +69,7 @@ const objectives = [
 
   useEffect(()=>{
   },[data])
-  console.debug(data)
+  // console.debug(data)
   return (
     <Container>
             <PageTitle>{'Mapa da Vida'}</PageTitle>
@@ -70,8 +80,6 @@ const objectives = [
       {data !== null && (
         objectives.map((item: any) => {
           const index = data.reasons.indexOf(item)
-          console.debug(index)
-
           return (<>
             {index !== -1 && (              
               <ReasonsChips>{item}</ReasonsChips>

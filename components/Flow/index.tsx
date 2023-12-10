@@ -7,22 +7,22 @@ import ReactFlow, {
 import CustomNode from './CustomNode';
 import NodeStatus from './NodeStatus';
 import NodeArea from './NodeArea';
+import NodeSubStatus from './NodeSubStatus';
 import 'reactflow/dist/style.css';
 import styles from './Flow.module.css';
 import { FlowContainer } from './style'
 import { obterPrimeiroNome } from '../utils/data-format';
-import { NODE_AREA, PRIMARY_GRAY } from '@/utils/colors';
+import { NODE_AREA } from '@/utils/colors';
 
 
 function Flow( { data, mind, body, spirit, isMobile }: any) {
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
   const dimensionY = 100
-  // const dimensionY = (700 - 18) / 2
   const dimensionX = (screenWidth - (128 + 150 + 10)) / 2
 
 
-  const base = [
+  const base: any = [
     {
       id: 'base',
       type: 'custom',
@@ -160,11 +160,21 @@ const initialEdges: Edge[] = [
   { id: '011', source: '4', target: '4-1' },
   { id: '012', source: '4', target: '4-2' },
   { id: '013', source: '4', target: '4-3' },
+  { id: '014', source: '2-1', target: '2-1-0' },
+  { id: '014', source: '2-2', target: '2-2-0' },
+  { id: '014', source: '2-3', target: '2-3-0' },
+  { id: '014', source: '3-1', target: '3-1-0' },
+  { id: '014', source: '3-2', target: '3-2-0' },
+  { id: '014', source: '3-3', target: '3-3-0' },
+  { id: '014', source: '4-1', target: '4-1-0' },
+  { id: '014', source: '4-2', target: '4-2-0' },
+  { id: '014', source: '4-3', target: '4-3-0' },
 ];
 
 const nodeTypes = {
   custom: CustomNode,
   status: NodeStatus,
+  subStatus: NodeSubStatus,
   area: NodeArea,
 };
 
@@ -176,17 +186,29 @@ const defaultEdgeOptions = {
   useEffect(() => {
   },[base])
 
+  const n: any = base.map((e: any) => e)
+  base.forEach((element: any) => {
+    const date = ['2-1', '2-2', '2-3', '3-1', '3-2', '3-3', '4-1', '4-2', '4-3']
+    const index = date.indexOf(element.id)
+    if (index !== -1) {
+      const nodeModel = {
+        id: `${element.id}-0`,
+        type: 'subStatus',
+        data: { label: element.data.status, status: element.data.status, invert: false },
+        position:  { x: element.position.x + 19  , y: element.position.y + 100 },
+      }
+      n.push(nodeModel)
+    }
+  })
+
   return (
     <FlowContainer >     
       <ReactFlow
         style={{
-          // width: '100vh',
           backgroundColor: 'white',
           border: `1px solid ${NODE_AREA}`,
-          // marginBottom: '0px',
-          // margin: '0 auto'
         }}
-        nodes={base}
+        nodes={n}
         fitView={!isMobile}
         edges={initialEdges}
         nodeTypes={nodeTypes}

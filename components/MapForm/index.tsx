@@ -25,9 +25,6 @@ const MapForm = ({ setMapList }:any) => {
     }
   }
 
-
-
-
   const navigateUser = () => {
     formik.setErrors({})
     router.replace('/')
@@ -72,10 +69,8 @@ const MapForm = ({ setMapList }:any) => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values: any) => {
-      // Aqui você pode lidar com a submissão do formulário
-      // console.debug('Valores submetidos:', values);
       const userMapsResponse = await getUserMaps(JSON.stringify(values))
-      console.debug('resposta', userMapsResponse);
+      // console.debug('resposta', userMapsResponse);
       setMapList(userMapsResponse)
     },
   });
@@ -95,7 +90,7 @@ const MapForm = ({ setMapList }:any) => {
           value={formik.values.email}
         />
         {formik.touched.email && formik.errors.email ? (
-          <ErrorMsg>{formik.errors.email}</ErrorMsg>
+          <ErrorMsg>{formik.errors.email as string}</ErrorMsg>
         ) : null}
         </CellContainer>
       </FormEmailContainer>
@@ -113,7 +108,7 @@ const MapForm = ({ setMapList }:any) => {
           value={formik.values.day}
         />
         {formik.touched.day && formik.errors.day ? (
-          <ErrorMsg>{formik.errors.day}</ErrorMsg>
+          <ErrorMsg>{formik.errors.day as string}</ErrorMsg>
         ) : null}
         </CellContainer>
       </DayContainer>
@@ -131,7 +126,7 @@ const MapForm = ({ setMapList }:any) => {
           value={formik.values.mount}
         />
         {formik.touched.mount && formik.errors.mount ? (
-          <ErrorMsg>{formik.errors.mount}</ErrorMsg>
+          <ErrorMsg>{formik.errors.mount as string}</ErrorMsg>
         ) : null}
         </CellContainer>
       </MountContainer>
@@ -149,14 +144,14 @@ const MapForm = ({ setMapList }:any) => {
           value={formik.values.year}
         />
         {formik.touched.year && formik.errors.year ? (
-          <ErrorMsg>{formik.errors.year}</ErrorMsg>
+          <ErrorMsg>{formik.errors.year as string}</ErrorMsg>
         ) : null}
         </CellContainer>
       </YearContainer>
       </FormBirthContainer>
       <ButtonsContainer>
-        <CancelButton type="button" onClick={navigateUser}>VOLTAR</CancelButton>
-        <SearchButton type="submit">BUSCAR</SearchButton>
+        <CancelButton type="button" onClick={navigateUser}>{'Voltar'}</CancelButton>
+        <SearchButton type="submit">{'Buscar'}</SearchButton>
       </ButtonsContainer>
     </StyledForm>
   );
