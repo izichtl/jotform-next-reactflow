@@ -17,7 +17,7 @@ export default function Banner() {
                 rel="noreferrer">{'Acesse nossa comunidade no'}</p> 
                 <span className="italic px-1"> </span> 
                 <a className="font-medium hover:underline text-emerald-400" 
-                  href="https://chat.whatsapp.com/IbZIIkGNWuFKRKdMOoR7WO" 
+                  href="https://chat.whatsapp.com/EbTqMObFEzoCKmHRC5ruoP" 
                   target="_blank" 
                   rel="noreferrer"
                 >
