@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   const bodyData = await request.formData() // bodyData now contains body
   // TRANSFORMA EM ARRAY A KEYS PODENDO ITERAR SOBRE ELAS
   // const keysArray = Array.from(bodyData.keys());
-
+  console.log(bodyData)
   const submission_id = bodyData.get('submission_id')
   const fullName = bodyData.get('name')
   const email = bodyData.get('email')
@@ -61,6 +61,7 @@ export async function POST(request: Request) {
     maps: [mindMap, bodyMap, spiritMap],
     reasons: reasons.filter((reason: any) => reason !== null),
   }
+  console.log(jsonData)
   const hash = uuidv4()
   const resultOfDB = await saveMap(jsonData, hash)
   console.log(resultOfDB)
