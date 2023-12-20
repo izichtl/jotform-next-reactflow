@@ -1,10 +1,12 @@
 'use client'
+
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Flow from '@/components/Flow'
 import {
   ChipsContainer,
   Container,
+  FormContainer,
   NotSelectedReasonsChips,
   ReasonsChips,
 } from './style'
@@ -94,13 +96,23 @@ const objectives = [
       )}
       </ChipsContainer>
       {data !== null && (
+        <>
         <Flow
           isMobile={isMobile}
           data={data}
           mind={data.maps[0]}
           body={data.maps[1]}
           spirit={data.maps[2]}
-        />
+          />
+          <FormContainer>
+          {true && (
+            //@ts-ignore
+            <iframe src="https://forms.gle/XbY6fgxi9ia4XCnP8?embedded=true" width="800" height="700" frameborder="0" 
+            marginheight="0" marginwidth="0">Loading…</iframe>
+          )}
+          </FormContainer>
+          </>
+
         )}
   </Container>)
 }

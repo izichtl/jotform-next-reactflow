@@ -27,7 +27,18 @@ export const ChipsContainer = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   margin-bottom: 15px;
+`;
 
+export const FormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: rgb(228,238,225);
 `;
 export const ReasonsChips = styled.div`
   display: flex;

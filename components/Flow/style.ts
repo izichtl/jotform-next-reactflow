@@ -4,12 +4,12 @@ import styled, { css } from 'styled-components'
 export const FlowContainer = styled.div`
   display: flex;
   flex-grow: 1;
-  height: 100vh;
+  height: 650px;
   width: 100%;
   margin: 0px;
   @media (max-width: 768px) {
     width: 100%;
-    height: 100vh;
+    height: 650px;
   }
 `
 

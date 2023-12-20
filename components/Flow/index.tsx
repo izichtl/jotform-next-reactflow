@@ -27,7 +27,7 @@ function Flow( { data, mind, body, spirit, isMobile }: any) {
       id: 'base',
       type: 'custom',
       data: { label: obterPrimeiroNome(data.fullName).toUpperCase(), icon: '📍', invert: false },
-      position:  { x: dimensionX  , y: dimensionY },
+      position:  { x: dimensionX  , y: dimensionY-50 },
       className: styles.customNeutral,
     },
     {
@@ -212,7 +212,7 @@ const defaultEdgeOptions = {
         fitView={!isMobile}
         edges={initialEdges}
         nodeTypes={nodeTypes}
-        defaultViewport={{ x: dimensionX, y: 0, zoom: 1 }}
+        defaultViewport={{ x: dimensionX, y: 300, zoom: 0.5 }}
         defaultEdgeOptions={defaultEdgeOptions}
         connectionLineType={ConnectionLineType.SmoothStep}
         attributionPosition="bottom-left"
