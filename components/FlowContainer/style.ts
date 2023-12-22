@@ -1,4 +1,4 @@
-import { PRIMARY_GRAY, SECONDARY_GRAY } from '@/utils/colors';
+import { NODE_AREA, PRIMARY_GRAY, SECONDARY_GRAY } from '@/utils/colors';
 import styled, { css } from 'styled-components'
 
 
@@ -29,6 +29,20 @@ export const ChipsContainer = styled.div`
   margin-bottom: 15px;
 `;
 
+export const ModalTextContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+  margin-top: 30px;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  background-color: rgb(228,238,225);
+`;
+
 export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -36,10 +50,10 @@ export const FormContainer = styled.div`
   width: 100%;
   flex-wrap: wrap;
   flex-direction: row;
-  margin-top: 30px;
   margin-bottom: 30px;
   background-color: rgb(228,238,225);
 `;
+
 export const ReasonsChips = styled.div`
   display: flex;
   align-items: center;
@@ -96,5 +110,31 @@ export const NotSelectedReasonsChips = styled.div`
   font-size: 12px;
   padding-left: 12px;
   padding-right: 12px;
+  }
+`;
+
+export const NewSearchButton = styled.button`
+  display: flex;
+  width: 300px;
+  height: 40px;
+  padding: 14px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  color: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+  letter-spacing: 0.08px;
+  background: ${NODE_AREA};
+  margin: 20px auto;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: 20px auto;
   }
 `;

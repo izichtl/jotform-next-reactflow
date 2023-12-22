@@ -7,6 +7,8 @@ import {
   ChipsContainer,
   Container,
   FormContainer,
+  ModalTextContainer,
+  NewSearchButton,
   NotSelectedReasonsChips,
   ReasonsChips,
 } from './style'
@@ -17,11 +19,38 @@ import {
   FormDivider,
   SecondTitle
 } from '../text-styles'
+//@ts-ignore
+import Modal from 'react-modal';
+
+
+const customStyles = {
+  content: {
+    width: '95%',
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
 
 export default function FlowContainer() {
+  const objectives = [ 
+    "Organizar o dia a dia", 
+    "Focar nos objetivos", 
+    "Melhorar a saúde", 
+    "Praticar exercícios", 
+    "Melhorar a alimentação", 
+    "Melhorar minhas finanças", 
+    "Estar mais tempo com a família", 
+    "Me dedicar a hobbies e projetos"
+    ]
   const searchParams = useSearchParams()
   const search = searchParams.get('hashData')
   const [data, setData] = useState<any>(null)
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   const screenLimit = 762
   let innerWidth: number = 0
@@ -57,21 +86,16 @@ export default function FlowContainer() {
     }
   }, []) 
 
-
-const objectives = [ 
-"Organizar o dia a dia", 
-"Focar nos objetivos", 
-"Melhorar a saúde", 
-"Praticar exercícios", 
-"Melhorar a alimentação", 
-"Melhorar minhas finanças", 
-"Estar mais tempo com a família", 
-"Me dedicar a hobbies e projetos"
-]
-
   useEffect(()=>{
   },[data])
-  // console.debug(data)
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
   return (
     <Container>
             <PageTitle>{'Mapa da Vida'}</PageTitle>
@@ -104,15 +128,27 @@ const objectives = [
           body={data.maps[1]}
           spirit={data.maps[2]}
           />
-          <FormContainer>
+        <ModalTextContainer>
+          <SecondTitle>{'Vamos construir uma experiência útil?'}</SecondTitle>
+          <PageSubtitle>{'Gostaríamos de entender qual foi a sua percepção sincera sobre a ferramenta?'}</PageSubtitle>
+          <NewSearchButton onClick={openModal}>Avaliar</NewSearchButton>
+        </ModalTextContainer>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
           {true && (
-            //@ts-ignore
-            <iframe src="https://forms.gle/XbY6fgxi9ia4XCnP8?embedded=true" width="800" height="700" frameborder="0" 
-            marginheight="0" marginwidth="0">Loading…</iframe>
-          )}
+              //@ts-ignore
+              <iframe src="https://forms.gle/XbY6fgxi9ia4XCnP8?embedded=true" width="100%" height="700" frameborder="0" 
+              marginheight="0" marginwidth="0">Loading…</iframe>
+            )}
+          <FormContainer>
+            <NewSearchButton onClick={closeModal}>Fechar</NewSearchButton>
           </FormContainer>
-          </>
-
-        )}
+        </Modal>
+        </>
+      )}
   </Container>)
 }

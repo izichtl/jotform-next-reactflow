@@ -6,9 +6,9 @@ export const StyledMain = styled.main`
     flex-direction: column;
     height: 100%;
     flex-grow: 1;
-    padding: 10px 30px;
+    padding: 0px 100px;
     background-color: "#F8F8FF";
     @media (max-width: 768px) {
-    padding: 25px;
+    padding: 30px;
   }
 `
