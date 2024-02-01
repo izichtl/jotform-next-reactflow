@@ -13,7 +13,8 @@ import {
   PageSubtitle,
   PageTitle,
 } from '../text-styles';
-import MapsTable from '../MapsTable';
+// import MapsTable from '../MapsTable';
+import { redirect } from 'next/navigation'
 
 const startTitle = 'Busca de Mapas'
 const startSubtitle = 'Informe seu email e sua data de nascimento para buscar seus mapas da vida!'
@@ -56,9 +57,13 @@ export default function MapListContainer() {
   }, []) 
 
   useEffect(()=>{
+
     if(mapList.success) {
-      setTitle('Listagem de mapas cadastrados')
-      setSubTitle('Veja os seus mapas. Compare versões e acompanhe seu progresso.')
+      const lastIndex = mapList.data.length
+      const lastMap = mapList.data[lastIndex-1]
+      redirect(`/loading?hash=${lastMap.hash}`)
+      // setTitle('Listagem de mapas cadastrados')
+      // setSubTitle('Veja os seus mapas. Compare versões e acompanhe seu progresso.')
     }
   },[mapList] )
 
@@ -67,12 +72,12 @@ export default function MapListContainer() {
       <PageTitle>{title}</PageTitle>
       <PageSubtitle>{subtitle}</PageSubtitle>
       <FormDivider />
-      {(mapList.success && mapList.data[0] !== undefined) && (
+      {/* {(mapList.success && mapList.data[0] !== undefined) && (
         <>
         <MapsTable data={mapList.data} isMobile={isMobile} />
         <NewSearchButton onClick={cleanSearch}>{'Nova Busca'}</NewSearchButton>
         </>
-      )}
+      )} */}
       {(!mapList.success && mapList.data[0] === undefined) && (
         <FormContainer>
           <MapForm
@@ -89,3 +94,12 @@ export default function MapListContainer() {
     </MainContainer>
     )
 }
+
+
+// <MobileButtonBox>
+// <a href={`loading?hash=${item.hash}`} target={'_blank'}>                  
+//   <MobileButtonIconBox>
+//     {'Acessar'}
+//   </MobileButtonIconBox>
+// </a>
+// </MobileButtonBox>

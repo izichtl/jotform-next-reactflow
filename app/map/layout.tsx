@@ -1,5 +1,5 @@
 'use client'
-
+import { useTheme } from '@mui/material/styles';
 import Footer from '@/components/Footer/index'
 import { StyledMain } from '../general-styles'
 import FrameHeader from '@/components/FramerHeader'
@@ -10,9 +10,11 @@ export default function DefaultLayout({
 }: {
   children: React.ReactNode
 }) {  
-
+  const theme = useTheme();
   return (
-    <Container>
+    <Container
+      background={theme.palette.background.default}
+    >
       <FrameHeader />
         <StyledMain>
         {children}

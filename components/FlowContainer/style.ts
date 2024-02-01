@@ -1,13 +1,18 @@
 import { NODE_AREA, PRIMARY_GRAY, SECONDARY_GRAY } from '@/utils/colors';
+import { Badge } from '@mui/material';
 import styled, { css } from 'styled-components'
 
 
-export const Container = styled.div`
+
+export const Container = styled(styled.div``)<any>`
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   padding: 0px;
+  ${props => props.background !== undefined && css`
+      background-color: ${props.background};
+  `}
 `
 
 export const FormDivider = styled.div`
@@ -138,3 +143,38 @@ export const NewSearchButton = styled.button`
     margin: 20px auto;
   }
 `;
+
+
+export const TabContainer = styled.div`
+  /* display: flex;
+  flex-grow: 1; */
+  height: 650px;
+  width: 100%;
+  /* margin: 0px; */
+  margin-top: 10px;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 650px;
+  }
+`
+export const InsightsContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-grow: 1;
+  gap: 1%;
+  width: 100%;
+  margin-top: 10px;
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+  }
+`
+
+export const StyledBadge = styled(Badge)<any>(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: -4,
+    top: -8,
+    border: `0px solid none`,
+    padding: '0 0px',
+  },
+}));

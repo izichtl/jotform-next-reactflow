@@ -2,9 +2,9 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "workbench.colorCustomizations": {
-    "activityBar.background": "#083428",
-    "titleBar.activeBackground": "#0B4937",
-    "titleBar.activeForeground": "#F2FDFA"
+    "activityBar.background": "#9afde2",
+    "titleBar.activeBackground": "#e2fff7",
+    "titleBar.activeForeground": "#0f1010"
   },
   "cSpell.words": [
     "atencao",
@@ -12,6 +12,8 @@
     "mapadavida",
     "mapjson",
     "reasonslist",
-    "smoothstep"
+    "smoothstep",
+    "swipeable",
+    "Swipeable"
   ]
 }
