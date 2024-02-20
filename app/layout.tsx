@@ -1,26 +1,20 @@
 'use client'
 import './css/style.css'
-import { Inter, Oxygen, Roboto, Roboto_Mono } from 'next/font/google'
+import { Oxygen, Noto_Serif } from 'next/font/google'
 import StyleRegistry from './registry'
 import Banner from '@/components/banner'
-import { useTheme } from '@mui/material/styles';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const oxygen = Oxygen({
   subsets: ['latin'],
-  weight: ['300', '400','700']
-})
-
-const roboto = Roboto({
-  subsets: ['latin'],
   weight: ['300', '400','700'],
-  variable: '--font-roboto',
+  variable: '--font-oxygen',
 })
 
-const robotoMono = Roboto_Mono({
+const noto_Serif = Noto_Serif({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto-mono',
+  weight: ['400'],
+  variable: '--font-noto-Serif',
 })
 
 export default function RootLayout({
@@ -28,7 +22,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // const theme = useTheme();
+
 
   const theme = createTheme({
     palette: {
@@ -56,9 +50,10 @@ export default function RootLayout({
       },
     },
   });
+
   return (
     <html lang="en">
-      <body className={`${oxygen.className} ${roboto.className} ${robotoMono.variable} antialiased bg-white text-gray-900 tracking-tight`}>
+      <body className={`${noto_Serif.variable} ${oxygen.variable} antialiased bg-white text-gray-900 tracking-tight`}>
       <ThemeProvider theme={theme}>
         <StyleRegistry>
           <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">

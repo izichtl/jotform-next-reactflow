@@ -64,6 +64,7 @@ export const NoDataText = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  font-family: var(--font-noto-Serif);
   margin: 7px 5px; 
   @media (max-width: 768px) {
     font-size: 15px;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const PageTitle = styled.h4`
   color: ${PRIMARY_GRAY};
+  font-family: var(--font-oxygen);
   font-size: 36px;
   font-style: normal;
   font-weight: 700;
@@ -26,6 +27,7 @@ export const PageSubtitle = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  font-family: var(--font-noto-Serif);
   @media (max-width: 768px) {
     font-size: 14px;
     font-style: normal;

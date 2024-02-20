@@ -47,8 +47,9 @@ export const CellContainer = styled.div`
 
 export const NameField = styled(styled.label``)`
   color: ${PRIMARY_GRAY};
+  font-family: var(--font-noto-Serif);
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 500;
 `;
 export const ErrorMsg = styled(styled.div``)`
   color: ${PRIMARY_ERROR};

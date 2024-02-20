@@ -146,11 +146,8 @@ export const NewSearchButton = styled.button`
 
 
 export const TabContainer = styled.div`
-  /* display: flex;
-  flex-grow: 1; */
   height: 650px;
   width: 100%;
-  /* margin: 0px; */
   margin-top: 10px;
   @media (max-width: 768px) {
     width: 100%;
@@ -159,11 +156,13 @@ export const TabContainer = styled.div`
 `
 export const InsightsContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   flex-grow: 1;
   gap: 1%;
   width: 100%;
   margin-top: 10px;
+  /* height: 400px; */
   @media (max-width: 768px) {
     width: 100%;
     flex-direction: column;

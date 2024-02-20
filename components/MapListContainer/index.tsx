@@ -94,12 +94,3 @@ export default function MapListContainer() {
     </MainContainer>
     )
 }
-
-
-// <MobileButtonBox>
-// <a href={`loading?hash=${item.hash}`} target={'_blank'}>                  
-//   <MobileButtonIconBox>
-//     {'Acessar'}
-//   </MobileButtonIconBox>
-// </a>
-// </MobileButtonBox>

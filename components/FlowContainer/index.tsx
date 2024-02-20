@@ -1,17 +1,13 @@
 'use client'
 import { useTheme } from '@mui/material/styles';
 import { useEffect, useState } from 'react'
-// import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { useSearchParams } from 'next/navigation'
-// import * as React from 'react';
 // @ts-ignore
 import SwipeableViews from 'react-swipeable-views';
-import { Badge } from '@mui/base/Badge';
-import MailIcon from '@mui/icons-material/Mail';
-import CircleIcon from '@mui/icons-material/Circle';
+
 
 import Flow from '@/components/Flow'
 import {
@@ -30,14 +26,32 @@ import {
 import {
   PageSubtitle,
   PageTitle,
-  FormDivider,
   SecondTitle
 } from '../text-styles'
 //@ts-ignore
 import Modal from 'react-modal';
 import RectangularCard from '../InsightCard';
-import { SubText } from '../InsightCard/styles';
 
+const returnHeight = (value: number, countData: number): string => {
+  if (value === 2) {
+    if (countData <= 3) return '450px'
+    if (countData > 3 && countData <= 6) return '480px'
+    if (countData > 6) return '650px'
+  } else {
+    return '300px'
+  }
+  return ''
+}
+const returnHeightMobile = (value: number, countData: number): string => {
+  if (value === 2) {
+    if (countData <= 3) return '750px'
+    if (countData > 3 && countData <= 6) return '750px'
+    if (countData > 6) return '750px'
+  } else {
+    return '300px'
+  }
+  return ''
+}
 
 const customStyles = {
   content: {
@@ -53,67 +67,67 @@ const customStyles = {
 
 const datas = [
   {
-  title: 'TITULO',
-  subtext: 'Equilibrando a Dimensão Financeira: Um Guia para uma Vida Financeira Saudável',
-  area: 'Rede de Suporte',
+  title: 'Rede de Apoio',
+  subtext: 'A construção de uma rede de apoio sólida é fundamental para o equilíbrio emocional e o bem-estar geral.',
+  area: 'Mente',
   status: 'Atenção',
   link: 'https://lucassoaresdc.notion.site/Rede-de-Apoio-0e927c59a89f4b98874fa3117f163fb6'
   },
   {
-  title: 'TITULO',
-  subtext: '',
-  area: 'Trabalho',
+  title: 'Trabalho',
+  subtext: 'Alcançar equilíbrio na dimensão profissional é crucial para uma vida plena.',
+  area: 'Mente',
   status: 'Atenção',
   link: 'https://lucassoaresdc.notion.site/Trabalho-c972d31cfa6f4dc48f555c3d48f79948?pvs=25'
   },
   {
-  title: 'TITULO',
+  title: 'Finanças',
   subtext: 'Equilibrando a Dimensão Financeira: Um Guia para uma Vida Financeira Saudável',
-  area: 'Finanças',
+  area: 'Mente',
   status: 'Atenção',
   link: 'https://lucassoaresdc.notion.site/Finan-as-ddaf1c34e86d40fb8e417c083ff277cc?pvs=4'
   },
   {
-  title: 'TITULO',
-  subtext: 'Equilibrando a Dimensão Financeira: Um Guia para uma Vida Financeira Saudável',
-  area: 'Exercício Físico',
+  title: 'Exercício Físico',
+  subtext: 'A prática regular de exercícios físicos é vital para uma vida saudável e equilibrada.',
+  area: 'Corpo',
   status: 'Atenção',
   link: 'https://lucassoaresdc.notion.site/Exerc-cio-F-sico-df493ceb54864abf97c3206afaec3dca?pvs=25'
   },
   {
-  title: 'TITULO',
-  subtext: 'Equilibrando a Dimensão Financeira: Um Guia para uma Vida Financeira Saudável',
-  area: 'Alimentação',
+  title: 'Alimentação',
+  subtext: 'A alimentação desempenha um papel fundamental no bem-estar geral.',
+  area: 'Corpo',
   status: 'Atenção',
   link: 'https://lucassoaresdc.notion.site/Alimenta-o-285489a7c4d341c9845d8d4fae460a48',
   },
   {
-  title: 'TITULO',
-  subtext: 'Equilibrando a Dimensão Financeira: Um Guia para uma Vida Financeira Saudável',
-  area: 'Hobbies',
+  title: 'Hobbies',
+  subtext: 'Inserir hobbies na rotina diária é essencial para equilibrar o estresse e promover a satisfação pessoal.',
+  area: 'Corpo',
   status: 'Atenção',
   link: 'https://lucassoaresdc.notion.site/Hobbies-0b70d40e30754fa0ba387285a30af284?pvs=25'
   },
   {
-  title: 'TITULO',
-  subtext: 'Equilibrando a Dimensão Financeira: Um Guia para uma Vida Financeira Saudável',
-  area: 'Propósito',
+  title: 'Propósito',
+  subtext: 'O propósito é a força motriz que dá significado à vida.',
+  area: 'Espírito',
   status: 'Atenção',
   link: 'https://lucassoaresdc.notion.site/Prop-sito-a98205e783fd4d4bab241e4c020ac869'
   },
   {
-  title: 'TITULO',
-  subtext: 'Equilibrando a Dimensão Financeira: Um Guia para uma Vida Financeira Saudável',
-  area: 'Experiências',
+  title: 'Experiências',
+  subtext: 'A busca por experiências enriquecedoras é fundamental para criar uma vida plena.',
+  area: 'Espírito',
   status: 'Atenção',
   link: 'https://lucassoaresdc.notion.site/Experi-ncias-4f227439d202467285cf26a8672fabee'
   },
   {
-  title: 'TITULO',
-  subtext: 'Equilibrando a Dimensão Financeira: Um Guia para uma Vida Financeira Saudável',
-  area: 'Tribo Correta',
+  title: 'Tribo Correta',
+  subtext: 'A Tribo Correta refere-se a um círculo de relacionamentos próximos e significativos, composto por pessoas que compartilham valores',
+  area: 'Espírito',
   status: 'Atenção',
-  link: 'https://lucassoaresdc.notion.site/Tribo-Correta-2560b06841494af2b0140bd2426de5a0?pvs=25'
+  link: 'https://lucassoaresdc.notion.site/Tribo-Correta-2560b06841494af2b0140bd2426de5a0'
   }
 ]
 
@@ -138,8 +152,6 @@ export default function FlowContainer() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState(0);
 
-  // const [value, setValue] = React.useState(0);
-
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue as any);
   };
@@ -147,10 +159,6 @@ export default function FlowContainer() {
   const handleChangeIndex = (index: number) => {
     setValue(index as any);
   };
-
-  // const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-  //   setValue(newValue);
-  // };
 
   const screenLimit = 762
   let innerWidth: number = 0
@@ -183,13 +191,13 @@ export default function FlowContainer() {
   function filterArraysByKeyword(arrays: (string | string[])[][]): (string | string[])[][] {
     return arrays.filter(subArray => subArray.some(item => Array.isArray(item) && item.includes('Atenção')));
 }
-  const modelingInsight = (data) => {
+  const modelingInsight = (data: any) => {
     if (data !== null) {
     const filteredArrays = filterArraysByKeyword(data.maps)
     const filteredDatas = datas.filter((data) => {
       let v = false
       filteredArrays[0].forEach(array => {
-        if(data.area === array[0]) v = true
+        if(data.title === array[0]) v = true
       })
       return v
     })
@@ -242,6 +250,8 @@ export default function FlowContainer() {
       </div>
     );
   }
+  const tabStyle = (value === 1 || value === 2) ? returnHeight(value, insights.length) : '750px'
+  const tabStyleMobile = (value === 1 || value === 2) ? returnHeightMobile(value, insights.length) : '750px'
 
   return (
     <Container
@@ -251,11 +261,17 @@ export default function FlowContainer() {
       <PageSubtitle>{'Veja áreas da sua vida. Trace planos. Priorize o que é importante'}</PageSubtitle>
       {data !== null && (
         <>
-          <Box sx={{ width: '100%' }}>
+          <Box sx={{
+            width: '100%',
+            height: {
+              xs: tabStyleMobile, 
+              sm: tabStyleMobile, 
+              md: tabStyle, 
+            }
+          }}>
             <Tabs
               value={value}
               onChange={handleChange}
-              // textColor="secondary"
               textColor="primary"
               indicatorColor="primary"
               aria-label="secondary tabs example"
@@ -268,10 +284,10 @@ export default function FlowContainer() {
 
           </Tabs>
           <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
+            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+            index={value}
+            onChangeIndex={handleChangeIndex}
+          >
         <TabPanel value={value} index={0} 
         dir={theme.direction}
         >
@@ -303,7 +319,7 @@ export default function FlowContainer() {
         
       )}
       </ChipsContainer>
-        </TabPanel>
+      </TabPanel>
         <TabPanel value={value} index={2} 
         dir={theme.direction}
         >
@@ -322,8 +338,7 @@ export default function FlowContainer() {
           </InsightsContainer>
         </TabPanel>
       </SwipeableViews>
-          </Box>
-  
+    </Box>
         <ModalTextContainer>
           <SecondTitle>{'Vamos construir uma experiência útil?'}</SecondTitle>
           <PageSubtitle>{'Gostaríamos de entender qual foi a sua percepção sincera sobre a ferramenta?'}</PageSubtitle>
